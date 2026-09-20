@@ -1,1090 +1,1175 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fatih Şahinbaş - Senior Software Development & Database Specialist</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Header */
-        header {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 0;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #667eea;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: #333;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-
-        .nav-links a:hover {
-            color: #667eea;
-        }
-
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.3);
-        }
-
-        .hero-content {
-            z-index: 1;
-            position: relative;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 0.5rem;
-            opacity: 0;
-            animation: slideUp 1s ease 0.5s forwards;
-        }
-
-        .hero .subtitle {
-            font-size: 1.4rem;
-            margin-bottom: 0.5rem;
-            opacity: 0;
-            animation: slideUp 1s ease 0.6s forwards;
-            color: #ffffff;
-            font-weight: 500;
-        }
-
-        .animated-roles {
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-            opacity: 0;
-            animation: slideUp 1s ease 0.7s forwards;
-            color: #edf2eb;
-            font-weight: 400;
-            height: 30px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .typewriter-text {
-            border-right: 2px solid #edf2eb;
-            animation: blink 1s infinite;
-        }
-
-        @keyframes blink {
-            0%, 50% { border-color: #edf2eb; }
-            51%, 100% { border-color: transparent; }
-        }
-
-        .hero .motto {
-            font-size: 1.1rem;
-            margin-bottom: 2rem;
-            opacity: 0;
-            animation: slideUp 1s ease 0.8s forwards;
-            font-style: italic;
-        }
-
-        .hero .years-exp {
-            font-size: 1rem;
-            margin-bottom: 2rem;
-            opacity: 0;
-            animation: slideUp 1s ease 0.9s forwards;
-            background: rgba(255, 255, 255, 0.1);
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            display: inline-block;
-        }
-
-        .cta-button {
-            display: inline-block;
-            background: #667eea;
-            color: white;
-            padding: 12px 30px;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            opacity: 0;
-            animation: slideUp 1s ease 1.0s forwards;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
-        }
-
-        /* Sections */
-        section {
-            padding: 80px 0;
-            background: white;
-        }
-
-        section:nth-child(even) {
-            background: #f8f9fa;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: #333;
-            position: relative;
-        }
-
-        .section-title::after {
-            content: '';
-            width: 60px;
-            height: 3px;
-            background: #667eea;
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        /* Experience Section */
-        .experience-timeline {
-            position: relative;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .experience-timeline::before {
-            content: '';
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 2px;
-            height: 100%;
-            background: #667eea;
-        }
-
-        .experience-item {
-            margin: 2rem 0;
-            position: relative;
-        }
-
-        .experience-content {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-            width: 45%;
-            position: relative;
-        }
-
-        .experience-item:nth-child(odd) .experience-content {
-            margin-left: auto;
-        }
-
-        .experience-item:nth-child(even) .experience-content {
-            margin-right: auto;
-        }
-
-        .experience-content::before {
-            content: '';
-            position: absolute;
-            top: 20px;
-            width: 0;
-            height: 0;
-            border: 10px solid transparent;
-        }
-
-        .experience-item:nth-child(odd) .experience-content::before {
-            left: -20px;
-            border-right-color: white;
-        }
-
-        .experience-item:nth-child(even) .experience-content::before {
-            right: -20px;
-            border-left-color: white;
-        }
-
-        .experience-dot {
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 16px;
-            height: 16px;
-            background: #667eea;
-            border-radius: 50%;
-            top: 20px;
-            z-index: 1;
-        }
-
-        .company-name {
-            color: #667eea;
-            font-weight: bold;
-            font-size: 1.1rem;
-        }
-
-        .job-title {
-            font-weight: 600;
-            margin: 0.5rem 0;
-        }
-
-        .job-duration {
-            color: #666;
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-        }
-
-        .job-description {
-            line-height: 1.6;
-        }
-
-        /* Skills Section */
-        .skills-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 3rem;
-            margin-top: 2rem;
-        }
-
-        .skills-category {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .skills-category h3 {
-            color: #667eea;
-            margin-bottom: 1.5rem;
-            font-size: 1.3rem;
-        }
-
-        .skill-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-
-        .skill-tag {
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: 500;
-        }
-
-        /* Projects Section */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .project-card {
-            background: white;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
-        }
-
-        .project-header {
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
-            padding: 1.5rem;
-        }
-
-        .project-body {
-            padding: 1.5rem;
-        }
-
-        .project-duration {
-            font-size: 0.9rem;
-            color: rgba(255, 255, 255, 0.8);
-            margin-bottom: 0.5rem;
-        }
-
-        .project-tech {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-top: 1rem;
-        }
-
-        .tech-tag {
-            background: #667eea;
-            color: white;
-            padding: 0.3rem 0.8rem;
-            border-radius: 15px;
-            font-size: 0.8rem;
-        }
-
-        /* Certifications Section */
-        .certifications-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-
-        .certification-card {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-            border-left: 4px solid #667eea;
-        }
-
-        .certification-card h4 {
-            color: #667eea;
-            margin-bottom: 0.5rem;
-        }
-
-        /* About Section */
-        .about-content {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-            font-size: 1.1rem;
-            line-height: 1.8;
-        }
-
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            margin: 3rem 0;
-        }
-
-        .stat-item {
-            text-align: center;
-            background: rgba(102, 126, 234, 0.1);
-            padding: 2rem;
-            border-radius: 15px;
-        }
-
-        .stat-number {
-            font-size: 3rem;
-            font-weight: bold;
-            color: #667eea;
-            display: block;
-        }
-
-        /* Contact Section */
-        .contact-info {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            text-align: center;
-        }
-
-        .contact-item {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-        }
-
-        .contact-item:hover {
-            transform: translateY(-5px);
-        }
-
-        .contact-icon {
-            font-size: 2rem;
-            color: #667eea;
-            margin-bottom: 1rem;
-        }
-
-        .contact-item a {
-            color: #667eea;
-            text-decoration: none;
-            font-weight: 500;
-        }
-
-        /* Footer */
-        footer {
-            background: #333;
-            color: white;
-            text-align: center;
-            padding: 2rem 0;
-        }
-
-        /* Animations */
-        @keyframes slideUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero .subtitle {
-                font-size: 1.2rem;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-
-            .experience-timeline::before {
-                left: 30px;
-            }
-
-            .experience-content {
-                width: calc(100% - 80px);
-                margin-left: 60px !important;
-            }
-
-            .experience-content::before {
-                left: -20px !important;
-                border-right-color: white !important;
-                border-left-color: transparent !important;
-            }
-
-            .experience-dot {
-                left: 30px;
-            }
-        }
-
-        /* Floating elements */
-        .floating-elements {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            z-index: 0;
-        }
-
-        .floating-elements::before,
-        .floating-elements::after {
-            content: '';
-            position: absolute;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            animation: float 6s ease-in-out infinite;
-        }
-
-        .floating-elements::before {
-            width: 200px;
-            height: 200px;
-            top: 20%;
-            left: 10%;
-            animation-delay: 0s;
-        }
-
-        .floating-elements::after {
-            width: 150px;
-            height: 150px;
-            top: 60%;
-            right: 10%;
-            animation-delay: 3s;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(180deg); }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Fatih Şahinbaş — Senior Software Developer &amp; Database Specialist</title>
+<meta name="description" content="20+ yıllık deneyime sahip senior yazılım geliştirici ve veritabanı uzmanı. Python, C#/.NET, Rust, Oracle, IFS ERP, FastAPI, yapay zeka ve endüstriyel entegrasyon projeleri. Bursa, Türkiye.">
+<meta name="author" content="Fatih Şahinbaş">
+<meta name="keywords" content="Fatih Şahinbaş, yazılım geliştirici, Python, C#, .NET, Rust, Oracle, FastAPI, IFS ERP, eBA Workflow, Kuika, yapay zeka, Bursa">
+<link rel="canonical" href="https://fatihsahinbas.github.io/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Fatih Şahinbaş">
+<meta property="og:url" content="https://fatihsahinbas.github.io/">
+<meta property="og:title" content="Fatih Şahinbaş — Senior Software Developer &amp; Database Specialist">
+<meta property="og:description" content="20+ yıl enterprise yazılım deneyimi. Python, C#/.NET, Rust, Oracle, IFS ERP, FastAPI, yapay zeka ve endüstriyel entegrasyon.">
+<meta property="og:image" content="https://fatihsahinbas.github.io/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:locale:alternate" content="en_US">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Fatih Şahinbaş — Senior Software Developer &amp; Database Specialist">
+<meta name="twitter:description" content="20+ yıl enterprise yazılım deneyimi. Python, C#/.NET, Rust, Oracle, IFS ERP, FastAPI, yapay zeka ve endüstriyel entegrasyon.">
+<meta name="twitter:image" content="https://fatihsahinbas.github.io/og-image.png">
+
+<meta name="theme-color" content="#5b6fe0">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#128187;</text></svg>">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Fatih Şahinbaş",
+  "jobTitle": "Senior Software Development and Database Specialist",
+  "url": "https://fatihsahinbas.github.io/",
+  "email": "mailto:fatihsahinbas@gmail.com",
+  "worksFor": { "@type": "Organization", "name": "Yeşilova Holding" },
+  "address": { "@type": "PostalAddress", "addressLocality": "Bursa", "addressCountry": "TR" },
+  "sameAs": [
+    "https://www.linkedin.com/in/fatihsahinbas/",
+    "https://github.com/fatihsahinbas",
+    "https://www.fatihsahinbas.com.tr/"
+  ],
+  "knowsAbout": ["Python","C#",".NET","Rust","Oracle Database","PL/SQL","FastAPI","Django","IFS Applications ERP","Machine Learning","MODBUS","System Integration"]
+}
+</script>
+
+<style>
+:root{
+  --accent:#5b6fe0;
+  --accent-2:#8b5cf6;
+  --accent-soft:rgba(91,111,224,.12);
+  --bg:#ffffff;
+  --bg-alt:#f5f7fb;
+  --card:#ffffff;
+  --text:#1f2430;
+  --text-soft:#5b6472;
+  --border:rgba(20,24,40,.09);
+  --shadow:0 4px 24px rgba(20,24,40,.08);
+  --shadow-lg:0 14px 44px rgba(20,24,40,.14);
+  --header-bg:rgba(255,255,255,.88);
+  --hero-overlay:rgba(10,14,35,.42);
+}
+[data-theme="dark"]{
+  --bg:#0f1320;
+  --bg-alt:#151a2b;
+  --card:#1a2032;
+  --text:#e8ecf5;
+  --text-soft:#a3adc2;
+  --border:rgba(255,255,255,.1);
+  --shadow:0 4px 24px rgba(0,0,0,.4);
+  --shadow-lg:0 14px 44px rgba(0,0,0,.55);
+  --header-bg:rgba(15,19,32,.88);
+  --accent-soft:rgba(91,111,224,.2);
+  --hero-overlay:rgba(6,9,20,.6);
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{
+  font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
+  line-height:1.65;color:var(--text);background:var(--bg);
+  transition:background .3s ease,color .3s ease;
+}
+.container{max-width:1180px;margin:0 auto;padding:0 20px}
+a{color:var(--accent)}
+
+/* ---------- Header ---------- */
+header{
+  position:fixed;top:0;width:100%;z-index:1000;
+  background:var(--header-bg);backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--border);transition:background .3s ease;
+}
+header nav.container{display:flex;justify-content:space-between;align-items:center;padding:.8rem 20px;gap:1rem}
+.logo{font-size:1.2rem;font-weight:700;color:var(--accent);white-space:nowrap}
+.nav-links{display:flex;list-style:none;gap:1.4rem;align-items:center;flex-wrap:wrap}
+.nav-links a{text-decoration:none;color:var(--text);font-weight:500;font-size:.94rem;transition:color .25s}
+.nav-links a:hover{color:var(--accent)}
+.nav-tools{display:flex;gap:.5rem;align-items:center}
+.icon-btn{
+  border:1px solid var(--border);background:var(--card);color:var(--text);
+  border-radius:10px;padding:.42rem .7rem;cursor:pointer;font-size:.86rem;
+  font-weight:600;font-family:inherit;transition:all .22s;line-height:1;
+}
+.icon-btn:hover{border-color:var(--accent);color:var(--accent)}
+#menu-toggle{display:none}
+
+/* ---------- Hero ---------- */
+.hero{
+  min-height:100vh;display:flex;align-items:center;justify-content:center;
+  text-align:center;color:#fff;position:relative;overflow:hidden;
+  background:linear-gradient(135deg,#5b6fe0 0%,#8b5cf6 55%,#6d28d9 100%);
+}
+.hero::before{content:'';position:absolute;inset:0;background:var(--hero-overlay)}
+.hero-content{z-index:2;position:relative;padding:5rem 1rem}
+.hero-avatar{
+  width:132px;height:132px;border-radius:50%;object-fit:cover;
+  border:4px solid rgba(255,255,255,.75);box-shadow:0 10px 34px rgba(0,0,0,.32);
+  margin:0 auto 1.3rem;display:block;opacity:0;animation:slideUp .9s ease .15s forwards;
+}
+@media (max-width:600px){.hero-avatar{width:104px;height:104px}}
+.hero h1{font-size:clamp(2.2rem,6vw,3.6rem);margin-bottom:.6rem;letter-spacing:-.5px;opacity:0;animation:slideUp .9s ease .3s forwards}
+.hero .subtitle{font-size:clamp(1rem,2.6vw,1.35rem);font-weight:600;color:#fff;margin-bottom:.45rem;opacity:0;animation:slideUp .9s ease .45s forwards}
+.animated-roles{height:32px;display:flex;align-items:center;justify-content:center;margin-bottom:.6rem;opacity:0;animation:slideUp .9s ease .6s forwards}
+.typewriter-text{font-size:1.1rem;color:#e6ecff;border-right:2px solid #e6ecff;padding-right:3px;animation:blink 1s step-end infinite}
+@keyframes blink{0%,50%{border-color:#e6ecff}51%,100%{border-color:transparent}}
+.hero .motto{font-style:italic;font-size:1.05rem;margin-bottom:1.6rem;opacity:0;animation:slideUp .9s ease .75s forwards}
+.hero-badges{display:flex;gap:.6rem;justify-content:center;flex-wrap:wrap;margin-bottom:2rem;opacity:0;animation:slideUp .9s ease .9s forwards}
+.hero-badge{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.25);padding:.45rem 1rem;border-radius:999px;font-size:.88rem}
+.hero-cta{display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap;opacity:0;animation:slideUp .9s ease 1.05s forwards}
+.cta-button{
+  display:inline-block;background:#fff;color:#4a58c9;padding:.8rem 1.8rem;
+  text-decoration:none;border-radius:999px;font-weight:600;transition:transform .25s,box-shadow .25s;
+}
+.cta-button.ghost{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.65)}
+.cta-button:hover{transform:translateY(-3px);box-shadow:0 12px 32px rgba(0,0,0,.25)}
+.floating-elements{position:absolute;inset:0;overflow:hidden;z-index:1}
+.floating-elements::before,.floating-elements::after{
+  content:'';position:absolute;background:rgba(255,255,255,.09);border-radius:50%;animation:float 9s ease-in-out infinite;
+}
+.floating-elements::before{width:230px;height:230px;top:14%;left:8%}
+.floating-elements::after{width:170px;height:170px;top:62%;right:9%;animation-delay:4s}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-26px)}}
+@keyframes slideUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+
+/* ---------- Sections ---------- */
+section{padding:84px 0;background:var(--bg);transition:background .3s ease}
+section:nth-of-type(even){background:var(--bg-alt)}
+.hero{padding:0}
+.section-title{text-align:center;font-size:clamp(1.7rem,4vw,2.4rem);margin-bottom:.8rem;position:relative}
+.section-title::after{content:'';width:56px;height:3px;background:linear-gradient(90deg,var(--accent),var(--accent-2));position:absolute;bottom:-12px;left:50%;transform:translateX(-50%);border-radius:2px}
+.section-sub{text-align:center;color:var(--text-soft);margin:1.6rem auto 2.6rem;max-width:640px;font-size:.98rem}
+
+/* ---------- Timeline ---------- */
+.experience-timeline{position:relative;max-width:900px;margin:0 auto}
+.experience-timeline::before{content:'';position:absolute;left:50%;transform:translateX(-50%);width:2px;height:100%;background:linear-gradient(180deg,var(--accent),var(--accent-2));opacity:.4}
+.experience-item{margin:1.8rem 0;position:relative}
+.experience-content{background:var(--card);padding:1.6rem;border-radius:14px;box-shadow:var(--shadow);width:46%;border:1px solid var(--border);transition:transform .25s,box-shadow .25s}
+.experience-content:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg)}
+.experience-item:nth-child(odd) .experience-content{margin-left:auto}
+.experience-dot{position:absolute;left:50%;transform:translateX(-50%);width:14px;height:14px;background:var(--accent);border:3px solid var(--bg);border-radius:50%;top:22px;z-index:2}
+.company-name{color:var(--accent);font-weight:700;font-size:1.05rem}
+.job-title{font-weight:600;margin:.25rem 0 .2rem}
+.job-duration{color:var(--text-soft);font-size:.86rem;margin-bottom:.8rem}
+.job-description{font-size:.94rem;color:var(--text-soft)}
+.job-loc{font-size:.8rem;color:var(--text-soft);opacity:.8}
+.timeline-toggle{display:block;margin:2rem auto 0}
+
+/* ---------- Skills ---------- */
+.skills-container{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem}
+.skills-category{background:var(--card);padding:1.6rem;border-radius:14px;box-shadow:var(--shadow);border:1px solid var(--border)}
+.skills-category h3{color:var(--accent);margin-bottom:1.1rem;font-size:1.08rem}
+.skill-list{display:flex;flex-wrap:wrap;gap:.45rem}
+.skill-tag{background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#fff;padding:.34rem .8rem;border-radius:999px;font-size:.82rem;font-weight:500}
+
+/* ---------- Filters ---------- */
+.filter-bar{display:flex;flex-wrap:wrap;gap:.5rem;justify-content:center;margin-bottom:2rem}
+.filter-btn{
+  border:1px solid var(--border);background:var(--card);color:var(--text-soft);
+  padding:.42rem .95rem;border-radius:999px;cursor:pointer;font-size:.84rem;
+  font-weight:500;font-family:inherit;transition:all .22s;
+}
+.filter-btn:hover{border-color:var(--accent);color:var(--accent)}
+.filter-btn.active{background:var(--accent);border-color:var(--accent);color:#fff}
+.filter-count{text-align:center;color:var(--text-soft);font-size:.86rem;margin-bottom:1.4rem}
+
+/* ---------- Projects ---------- */
+.projects-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:1.4rem}
+.project-card{background:var(--card);border-radius:14px;overflow:hidden;box-shadow:var(--shadow);border:1px solid var(--border);display:flex;flex-direction:column;transition:transform .25s,box-shadow .25s}
+.project-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-lg)}
+.project-card.hidden{display:none}
+.project-header{background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#fff;padding:1.2rem 1.3rem}
+.project-header h3{font-size:1.06rem;line-height:1.35}
+.project-duration{font-size:.8rem;color:rgba(255,255,255,.85);margin-bottom:.35rem;display:flex;align-items:center;gap:.5rem;flex-wrap:wrap}
+.badge-live{background:rgba(255,255,255,.22);padding:.1rem .5rem;border-radius:999px;font-size:.7rem;font-weight:600;letter-spacing:.3px}
+.project-body{padding:1.2rem 1.3rem;display:flex;flex-direction:column;flex:1}
+.project-body p{font-size:.92rem;color:var(--text-soft);flex:1}
+.project-tech{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:1rem}
+.tech-tag{background:var(--accent-soft);color:var(--accent);padding:.24rem .7rem;border-radius:999px;font-size:.76rem;font-weight:600}
+.project-org{font-size:.78rem;color:var(--text-soft);margin-top:.8rem;opacity:.85}
+
+/* ---------- GitHub ---------- */
+.repo-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:1.2rem}
+.repo-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.3rem;box-shadow:var(--shadow);text-decoration:none;color:inherit;display:flex;flex-direction:column;transition:transform .25s,border-color .25s}
+.repo-card:hover{transform:translateY(-4px);border-color:var(--accent)}
+.repo-name{font-weight:700;color:var(--accent);margin-bottom:.45rem;word-break:break-word}
+.repo-desc{font-size:.89rem;color:var(--text-soft);flex:1}
+.repo-meta{display:flex;gap:1rem;margin-top:1rem;font-size:.8rem;color:var(--text-soft);flex-wrap:wrap}
+.repo-lang-dot{width:9px;height:9px;border-radius:50%;background:var(--accent);display:inline-block;margin-right:.35rem}
+.repo-note{text-align:center;color:var(--text-soft);font-size:.9rem;padding:1.5rem}
+
+/* ---------- About ---------- */
+.about-content{max-width:800px;margin:0 auto;text-align:center;font-size:1.02rem;color:var(--text-soft)}
+.about-content p{margin-bottom:1.1rem}
+.about-content strong{color:var(--text)}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1.2rem;margin:2.4rem 0}
+.stat-item{text-align:center;background:var(--accent-soft);padding:1.6rem 1rem;border-radius:14px}
+.stat-number{font-size:2.4rem;font-weight:800;color:var(--accent);display:block;line-height:1.1}
+.stat-item span:last-child{font-size:.88rem;color:var(--text-soft)}
+
+/* ---------- Certs ---------- */
+.certifications-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:1.2rem}
+.certification-card{background:var(--card);padding:1.3rem;border-radius:12px;box-shadow:var(--shadow);border:1px solid var(--border);border-left:4px solid var(--accent)}
+.certification-card h4{color:var(--accent);margin-bottom:.4rem;font-size:1rem}
+.certification-card p{font-size:.88rem;color:var(--text-soft)}
+
+/* ---------- Contact ---------- */
+.contact-info{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.3rem;text-align:center}
+.contact-item{background:var(--card);padding:1.8rem 1.3rem;border-radius:14px;box-shadow:var(--shadow);border:1px solid var(--border);transition:transform .25s}
+.contact-item:hover{transform:translateY(-4px)}
+.contact-icon{font-size:1.8rem;margin-bottom:.7rem}
+.contact-item h3{font-size:1rem;margin-bottom:.5rem}
+.contact-item a{text-decoration:none;font-weight:600;word-break:break-word}
+.contact-item p{font-size:.88rem;color:var(--text-soft)}
+
+footer{background:#12162a;color:#c8d0e4;text-align:center;padding:2.2rem 0;font-size:.9rem}
+footer p+p{margin-top:.4rem;opacity:.75}
+
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .6s ease,transform .6s ease}
+.reveal.visible{opacity:1;transform:none}
+
+/* ---------- Responsive ---------- */
+@media (max-width:900px){
+  #menu-toggle{display:block}
+  .nav-links{
+    display:none;position:absolute;top:100%;left:0;right:0;
+    background:var(--header-bg);backdrop-filter:blur(14px);
+    flex-direction:column;align-items:flex-start;gap:0;padding:.5rem 20px 1rem;
+    border-bottom:1px solid var(--border);
+  }
+  .nav-links.open{display:flex}
+  .nav-links li{width:100%}
+  .nav-links a{display:block;padding:.65rem 0;width:100%}
+  .experience-timeline::before{left:22px}
+  .experience-content{width:auto;margin-left:52px !important}
+  .experience-dot{left:22px}
+  section{padding:60px 0}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none !important;transition:none !important}
+  .reveal{opacity:1;transform:none}
+  html{scroll-behavior:auto}
+}
+</style>
 </head>
 <body>
-    <header>
-        <nav class="container">
-            <div class="logo">Fatih Şahinbaş</div>
-            <ul class="nav-links">
-                <li><a href="#home">Ana Sayfa</a></li>
-                <li><a href="#experience">Deneyim</a></li>
-                <li><a href="#skills">Yetenekler</a></li>
-                <li><a href="#projects">Projeler</a></li>
-                <li><a href="#certifications">Sertifikalar</a></li>
-                <li><a href="#about">Hakkımda</a></li>
-                <li><a href="#contact">İletişim</a></li>
-            </ul>
-        </nav>
-    </header>
 
-    <section id="home" class="hero">
-        <div class="floating-elements"></div>
-        <div class="hero-content">
-            <h1>Fatih Şahinbaş</h1>
-            <div class="subtitle">Senior Software Development & Database Specialist</div>
-            <div class="animated-roles">
-                <span class="typewriter-text" id="typewriter"></span>
-            </div>
-            <div class="motto">"Oku, Yaz, Düşün, Düşle"</div>
-            <div class="years-exp">20+ Yıl Yazılım Geliştirme Deneyimi</div>
-            <a href="#experience" class="cta-button">Deneyimimi İncele</a>
+<header>
+  <nav class="container">
+    <div class="logo">Fatih Şahinbaş</div>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#home" data-tr="Ana Sayfa" data-en="Home">Ana Sayfa</a></li>
+      <li><a href="#experience" data-tr="Deneyim" data-en="Experience">Deneyim</a></li>
+      <li><a href="#skills" data-tr="Yetenekler" data-en="Skills">Yetenekler</a></li>
+      <li><a href="#projects" data-tr="Projeler" data-en="Projects">Projeler</a></li>
+      <li><a href="#github" data-tr="GitHub" data-en="GitHub">GitHub</a></li>
+      <li><a href="#certifications" data-tr="Sertifikalar" data-en="Certifications">Sertifikalar</a></li>
+      <li><a href="#contact" data-tr="İletişim" data-en="Contact">İletişim</a></li>
+    </ul>
+    <div class="nav-tools">
+      <button class="icon-btn" id="lang-toggle" type="button" aria-label="Language">EN</button>
+      <button class="icon-btn" id="theme-toggle" type="button" aria-label="Theme">🌙</button>
+      <button class="icon-btn" id="menu-toggle" type="button" aria-label="Menu">☰</button>
+    </div>
+  </nav>
+</header>
+
+<!-- ================= HERO ================= -->
+<section id="home" class="hero">
+  <div class="floating-elements"></div>
+  <div class="hero-content">
+    <img class="hero-avatar" src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBAUEBAYFBQUGBgYHCQ4JCQgICRINDQoOFRIWFhUSFBQXGiEcFxgfGRQUHScdHyIjJSUlFhwpLCgkKyEkJST/2wBDAQYGBgkICREJCREkGBQYJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCT/wAARCAFAAUADASIAAhEBAxEB/8QAHAAAAQUBAQEAAAAAAAAAAAAABAACAwUGAQcI/8QAUxAAAQMCBAMEBgUHCAcFCQAAAQACAwQRBRIhMQZBURMiYXEHFDKBkbEVNXOh0RYXI0JSVpQIJFVihJOiwSVTksLS8PEzNHKCsjZDRUZUY2WD4f/EABoBAAIDAQEAAAAAAAAAAAAAAAACAQMEBQb/xAAmEQACAgEEAQQDAQEAAAAAAAAAAQIRAwQSITEiEzJBUQUUI2FD/9oADAMBAAIRAxEAPwD1ULobm0IBCaFIwgFAgnYdh0lzNhtBK47ukpmOd8SFGMIwdrSBguE6ixAoYQD52bqir3XUABjBcItb6FwgDp6jFb4ZV36GwgCwwXCAN8ooYbfDLb7kWkghqwUYPhNifofCr7X9SiuR/s6rn0NhAbb6FwnL+z6jDb4ZUXdI6oJAzg2EEBv0Jg5aNgaCE2/wrpwXCHgB2C4S4N9kGiiOXyu3RFroQAH9C4OHhwwTCA4G+YUEN7+eVMPD2BWI+gMGsdD/ADCIf7qPA1XQ1BKAhgmDhpaMEwcNdYuaKCEB3mMqb9AYJp/oHBdL2/0fDbXwyqwypZUE2itdw9gebN9BYOSbXPqEROn/AJUouHMCjdmZgWDtN73FDDf45VZFuicyJzthc2vYJkhStPDeAuaM2AYK4j/8fD/w6+9Nl4YwGTJm4ewQlvsn6Ph0/wAKnqMZwyi/7xiFMwg2LM4LvgNVUTcf4W0n1emq5uhLQwH4pJTjHtlixyfSLBvC/D7pDJ+TuBh50J+jodf8KcOGcAzOzcO4I7MLG+Hwn/dVGfSA65thLvfOB/kuH0ilmpwYnyqR+CRanH9jfr5X1EvBwnw62IxDhvA8hB0+j4f+G6Y7g3hlzWB3DGBODdr4fFp/hQEfpGw0gdvh1fFyuwNkA+FtEfTcc8OVTg36REJ2tPE6P5i33p1khL5K3hyruI93CHDb8pdw3ghLNQPo+GwP+ynjhHhsSOlHDOA9o72n/R0Nz5923wVrS1FLVsD6aohnB/1cgd/nopsluX3p0k+hG2uzPfkLwmWPj/JbAsj/AGh6hF3v8KlbwNwqIHQDhfARE/2meoRa++11eEC6QUNUCkUT+AOEHlhdwngBMdw0+oRi33Jfm/4OdN27+E8BMpaG5vUYxoPcr5JQSUMXo/4Np3mSDhLAI3k6uFBHc/cuD0d8FOY5h4O4eLHG5aaFlifgtBolcBAFC/0d8FSRtjfwfw+5jDma00LLNI6WCaPR3wT2jXu4O4eLmizT6izQLQAhLRAFF+b3gztTMOEcA7U2Gc0Md7DblZN/N3wU1z3t4P4eDnklx9RZ3id+S0Fwle6AKak4XwDA2/6JwPDcPHSlp2x/JEtOiLmGiFLbIAauhctZdCAN5hH1XSfZN+SLQmEfVdJ9k35ItA55JclTxE6JrWhSAWKBB4dcqRMYAFIgBJJJIASW6SQ3QArFOTSnBAHQLpwauMCeTlQArCy49zY2F8jmsYN3ONgFSY/xdQYE10WtTW27sDOR/rHksBjOO4njz/53UWh5U8dwweB6+9VZM8MfyaMWmnlNpjHH+HUJdFh+TEJhoSx9o2nxNtfcsvXcV4vipIlq3Qxf6mAZG+R5lUkMLWiwFkQ2O+y5uXVyfTOth0EYrkaI25s4Y0O5m2pUrGne9k9kJuERHT2318Fk9STfLNqxRXSIW3IsASmPY47AqxYzLs0JCkLtr6qLY1IrLW3THZyLAmyuW4abXc37lw0NuX3Iti0mU8ERY/OwBjh+s3un4haDDOI8ZoiA2rNS0DRlUM48r7gIY0gG2iaYizQXVkc849Mrnpsc+0bHCuOaKoDI8TZ6hKdM980X+1u33rSseyVgfE9r2HZzTcHyK8oHNp26I7CMXq8FdakktETrC8XY7/h9y34ddfEzlan8Yl5Yz0o6bpt1X4Rj9HjX6OMmKqAJNO86kDct/aHl8FYOFvC/VdFNSVo5LUoOpHc2i4H+C4NklA0ZWOzpZ0xJAw/OkHXTEkAclOigcVM9QuAQA3dIJJBAG8wj6rpPsm/JFoTCPquk+yb8kWgc8oMlk9r7qIRkqQNsgQljdupcyhjUqAEkkldBNHUrpt/EJZ29RZBA8KRqhD2u2upGu1AuAOqkCYaBY7injHsS+hw5w7UEtknGuXwaevUpnGPFLqWN+G0Uo7RwyzSjXKD+q3x8VgmyADKLaaLHqNRt4R0NLpt3lIIzkuc4kkuN3Em5JThYhQsdfRTMGq5MpuXZ2YY0lSJY4xa90REwLkLb2CKyhuwSFw2Ngup4m3NgorWNwiKaQRuBcirIsLgpQQ1x67Kxp6RjiCQBzUMDmHoi2vs0aqxJFEpNkpo2uGlioZKFvKykbOQddlI6VuW+iahbZXS0bWtJ0uq2duUnVWlXO3IbGx6KokkuSN1Uy/H1YO66be2ikeRZRXB5hKkM+h+XOW9+SN7Ddkkbsr4z1aeRWo4f44HrVNg+OuLaicltNX2AindyY/8AZkPU6FZHNYptRBT4jTSUdVGyWGVpa5juY/y81t0uoeN0+Uc7VaaORXXJ6+9pY7KRYjcHkmu2Xi/DHpBrPRpiLMD4mnqa/hmc5aHEHgvkobmwjkP6zPE7br2kFk0LJYnskjkaHNew3a4HYg8wuxCSnG0cDJCWOVMi2SLuSc5tlA8kOsglOyQP0XC+w2UeYrhJKCRxkJTLkpJIAS6FxdCAN5hH1XSfZN+SLQmEfVdJ9k35ItA55XyXVAXEBSs1GqBB7Sn52jdwUS4WhQwOvqOQKYJZHcyEizKL2umseSbFKMPDXO3cU9rLeK621lK0BMgYg1U3FXEDMDo2xRu/nVQCI/6gG7la1lfTYTRVFfWyiKmpozLI89ANvM7e9eNYpjdRjFVPiFReOSocHNYTrEwey33XSZsm2Jdp8W+QyWoc97u8TfcncnquMJ63QTZRtdSsl1C42SVuzuY4qPCLCNEs3QMUmu6KY+9lQzQmWELrEIskb9VXRPtuiBNysVI1koJvvdSMd1QpdroUhKQealIVstKecsNydEWytHWyqadwfo42KMY0AC9k6KpMNFSXagpPq3bbhCjXQJ2U22KZikc9Tcc0GXkKeZhtsd0M5pBVLLV0cfLf9UqO4J2snkJjxb3qBrEXWUZcAbpp3THHXUoRXJjMVw+nxmglo6qJskcgsWlDeiPjSr4PxdnBOO1Bfhcn1fVyu/7s8uNo3H9k8uhRzXk7FZDjfA2VgE7GXeB3if1SNiPIroaTK4yowavCpxs+k3sNzvobG6hcy6yHom4zdxjwswVhy4rhrvVaxt9XEDuv8nAb9QVsC4Lq3ZxOnRCRYriT36rmZQMdSSSQAl0Li6EAbzCPquk+yb8kWhMI+q6T7JvyRaBzygMsnNFiu20StZAgiuLqVkAI+ymMiIFzun7pwNtFFEpijaiY2AkKFtr6KR1RFRQy1U7gyGFjpJHfstAuT8ApFPOvS7jBqK/D+FacuyW9fr+VmDSNh8z3reCwNTNmkIveyZS4/NxHXYrxFOHNfiExcwOPsxjRg+FkC+cmUkmyw6mVnV0saQfG9Tsdqq+GUu5oyHVwuuczoRDoXXVhDsEBTjVWdPGHAXCQtiwiCLtNnWsi2UznaBMgZkAsLK0gIJFkIYDZh8h1uCuuoZugHvVs1l9kyWFzRfdPEiyuiw+YuB7Rg8Lo1lN2Zu92ayexl+Slymw0UlbFHTguvb/+otkDbeyFGwkboptg2+ikUAqIAQQ1qrZYDr1VxUus7um2ir5nann4qqRYnRXOYQNVE9uiLeNLoWa4adFBLkgYnWyikPespjc8kPL7SkRj2vsocQibNA7MbNIsT4JpcRzsuPcXC2bRWwKZq1QJwPjkXCnHUMjsopK5ooamwIzBxvG8jmQ4jXoV7rKDzC+dMdpZqiMS0gyzD2SBs7r9wXvHCuON4k4Zw/FBbPNEBKBqBINHD4hdjDLdE4mohtkFkG66BqpHmx2XBYhWlQkkkkAJdC4uhAG8wj6rpPsm/JFoTCPquk+yb8kWgc8qvYbrt7qCxPIhTNBA1QIdSSSQA4aJNs5yaSALpokBOhUAEALK+l/Ezg3o2xSWM2mqzHRxnNbKZHan3AFaYP5aLyz+UTWOfguAUAzASVr5nDk4NZb/ADUvoeCuRgaRwpsPihZo1jbAIdz73XIZC+NpvoQmXIuublOphC6WTvW8Fa0zrlU1P3XXPNHwSuDhvZY6NiZc07wHX5K0pKhpWd9cse7onMxHsje6jaOpGuZUW1uAiaeqDXC7xZY36aaLAklPZjjb2ElilUR1JHocdcwN5Lj6wP8A+qxcGPEi2YfFT/TdhcuViCzXMnaHB1wuurAzZZEY8Bz+JS+nmuOp+BQKzTPxkC+yhkxyw9tY2qxnMbtG3igTjOcHvWPmhsFRu/pjtDq64suCva42HzWNpcTJbq8Enoj4MYpQbPmY1w5c0uxsVziagPDhcWKhl7wKqWY5QgtBnyl22m6cMapC8ME4u42Fza6PTl9EKaYYRqh5faKm7Rr2tc1wIPioZLEqKJ4+AaRuZRyfo2Eu5C9kSWcgoZYXOBNxayZFckVtXVuja+OMjJIAXB2w1W89CtfHPhOL4dHJI4UlaJgXstpI29r+bSvNMTmDJhGDYkXt1stX6G8SjpuMauieBC7EaElrbaPfG6/xsSupg4aRytSt3R7A9miYLWRMrLckOVqMaOJJJIAS6FxdCAN5hH1XSfZN+SLQmEfVdJ9k35ItA55UF1cXUCCTXuypy4RdAETnFwsE1kJvsQiGtHRSXB00QA2KAc736rxr+UaXjGuFos1m+q1DsvVxe3U+4D4r2xq8M/lDVBdxng8BAHq+G5tOr5T+ASy6LMfuMbTgmJtjyTrG2qbROzx+5PkFlz8h04MmpwHuyu2CsGRg6NPxVXTElzrdFT4xxLNBN2VJM4tZo5xF9VSsd8Fu+jUzCwuXNaOpNlVzVjGktEgJ8CsZU8R10zj2tTKW/s7KqrMWqJH2je4e9Wx04nr/AOG+fX5ATnFvNDNxVnaEtkz35A7LBtrqg7uebomnqnbnMCpeCiVms31PjQbbU2RP0u+XVriAsLTVj7kZja91bUdRmsbndUShRfHIy+diEuYnPcKWLE5G8wnYfQtqo26C6jxGhNIcpGhGhCWh91gdVjTo7hzx5KorOJJmMIieAOqirCe9cDfRVkrGOfYi4TwS+RJf4A1mMVssuY1EvhlcRZMp8VrIpM4dI8nfMTqrOnw6KR9iBZX+GYBFPoMg81r9SNUkZHibd2UVLjk0jgC+Vj812sFywdb6q+imraqPLOZpGM1bkcQB+Cs6fhqAPtG2MuHVF/QzoQQ0ZD1A3STyL6HUKJ+GOJa7BmCnxCR9XQk6AX7Sn8hzC21PW01YC6mmZK0c2nX3heZT0klO/vlwcedtwi8JxWShewtI7u2Xa3NZpRT5LYuj0prtUpIy5psRsq+hxFlY1krLAOAuL7FWtwWnoq0h30ZDEH9nL2jhbJcFtrkp3C2JNwvjjAKuxMbKxsTi52rWv7p+YU2PUrXPEpkcx7dGAfr+CojLHHXUhe50ZhqYXu06PF7rfB9Uc7L2z6qn7t2kbGyFd5IuoJdJISLXcT8ShX6Lec5djCuJEpKCRLoXF0IA3mEfVdJ9k35ItCYR9V0n2Tfki0DnlS6FxdCBBFcXSuIAaX20XWOJXCwEp7WgbIAJhFrFfP8A/KDzS8fwhp9nDobeHecvoGLkvAv5QsXZ8e0MjSLS4Yw28Q9wUSXBZifkjH4BMZoHh5JLAEZPuSq/hpus46tBKLqn2uudPs6UOCvr8S9Wjkjjd33tseqoJozVf87o2rYJpHbXHNPpqdsbc7iLBKhivjwQSC5a66nZw9CB7GqMdiQMggpmmSQ8r2A8zyQ1dU09MP57jMTXHeGi77m+blZHc+hJNLsGnwmGK9i1lt7qunhZE6zXtd5FRVWKUL5LNjne0n23uNyPJNIiBHcMd9RmVji65CM4skbKYzpsrbCpc5F1TiMvF2kEDorfhundNVthAPecL3VGRUi3G7Z6vwfg3rgjOXM0jdW/FfCwhpXODBdovorngujbRRQgWvoCBstTj9HHLFne0Fh0ssblZs2Hyhi0hbO5m2U2VSZsp8VvfSVwq7CMUM9PG91HUO0NtWHoVhpKeWN2WKK/itOLbXJXOLGdtOwZ+0EY6lSQYvS07g+qjnqze+UyOYCPcnUNEGztkmidLqLB2gVpxHw7VY7VQT4VS3kcwMfA17BYjm3XULTBwbox5d65Qc7jnguqiZBVcFimLRbt6Ktka8eJzXuU6kraWrLncP4zUMkbr6liT75h/VcqU+irjCGPtqjB5KeIbvnljYBfbdyjq+G5h2VNC+HPF3SWOza9dOSslGC7KoPI30aenxl2KB9NUNMVVGbPidv5jwUDA6OTLc6aKqGFYtRiOrn/AEvZEBskYOcAcvEK7oJ6XF2h0eIYfTy6XbO4tcOtwQseWKvx6NkG65Ndw3KXwWsbArTxSXaNVTYPgpoKdlqptTmFy5gsFcNaGACyybi1WAY0GloLmOLXaXBAseRvyWRxGMSP7QvyyktaC8W1zAXP/Oq2+Ksjmw94kLg0EXyjUeSzHqNNXVkNM6R0rZZomnsxqG5mknQdWnyXQwtUrMGaPk0fTbnENAI1AHyQ0hKrZeNMLkeXCGrEZtaRzBr423CsWSx1ELZYntfG8Xa5p0IW9SUuEzmSxzi7kiPMU7NomkWXFID8yQcmLoQBv8H1wqk+yb8kYg8G+qqT7JvyRiBzyoFdTdk4aoEEkkkgDgTm7rmyewXQSERC9l4r/KOw8sxnh6vaBeWklgcf/C8OA+8r2uEahYT+UBw1UYjwXS4rBTSySYXVds7JGSTE5pa4+Q0KPgIPyPCeHmketEbloT63XRNwB9qOeUado6w1vonVAzO6rmTfJ1YdFPK0h2yDxCqdDAWsIa52lydvFW9TCRqG7qqnw19VIDI0hoSxkr5HcSjmr7k01OT2dzd+WxPigamgeXh0TS5tr6DXxWmdhjItfkmuicyxY61traLRHMo9ISWDd2ZuDC6qQhxhc1l9XPFgryqy1DBGI2hjWgC+6nEMk9zI97vM3UnqR9kC7jslyZmx8WBRKyloo4ZA4l1/uW84LwZok9flj1Ngy6r8J4ae+QSVAtH06raYazKAwaNGgCx5cjlwascFE9DwAtY2IAWt081qMdt6q117X0WUwIgmNunJarHzamjbb9VVxjZbJ1RjsToqbEKeSnqohLG8WIK8uxzgKXDJC+Fzp6c3LXAas816tOSCUPC+78rgLHQ+KVOh5KzxCbBKsOu2MPaOiDmoHM0ewtub3aF7piHCdLXt7SnZ6vIdf0egPuWUr+EauhL89G6aMH2mNve6ujMpcTzaKjpi8OlkaQTfKCd/irijxCgo5AInR2ts2y1dHw7Tl/1LHM46ESR/NbPCOFaaNgkjwmkhcQLWhbp9yJZLI2mZwGiixGFjnRtLSfZJBv7lqaDhvD2Oz/R1E537T4Wk/Gy0EOFiNt3xsFuWUZT7l2aWOHQW13SN/QUU8+HxRNu1jGnwVPUDK5wBV3Vyh4PRU1U0DUc0gAzw6anlhbu9tr31Hl4oGgigwPEWTTxmKoZDfK64zZubRppoitpBoCDoVU8UxjD6OmnEr3Rub2bO0cXG97EC+tuY3stcfaZ/+iIuLPSXXUMrafCGwmVp/SzSMvb+q0f5r0/0NcRy8R8MVTqywnp5mizdu825t4XXgOKURdEycNOuvmvXv5PQLcOxp1u4TAB4nvX+6ybTS80W/kIReBnqzhYpq67UnVcXUPOroS6FxdCCTf4N9VUn2TfkjEHg31VSfZN+SMQOeRhxvupGOUITmoECEkwO8U4HxQB1PabbJiczdAGa9JHFc/DODQxUM3YV1c5zY5rXMTG+04X0vqAF4Z+VvFmG1E81BxNizHStLZBJUmWOQEWILHXafgt9/KO7ePD8EkjJDX9vESP/ACleK4HNO5kjHPc9jLEA8lk1GRxdI6+jwRli3tF7hILcNdoBlfqPEolre0Nha6gw+5ZUgEFjiHW8UVTgAhZW75HqmI02VtnC6HNOX/q2arymiElha5KsPo2OQBt/gqmyxK+DHPw1shuSRbxULsNYDaxK3DeHopDq8hHUnDNPG4Eszu5EpXOui5YWefwYHNUOyRQuueZWkwjg4MyvqBdw6jZbaDCoordwKc07RoL2SvI2WxxJGNxiFuHxgAjLsEzAXetONzcA3FkJ6QKw0swZewIumcGyPbq42ufuUJcCydM9LwWPLLHYG9wtVjkr2wMFu6WjdZ/BnsD2AkC1le49VMnghYwDuMsbeaeKoWTujKVsoY0k6DmqmGvY6Qd62uiscRifKO6DzVBj2EVdFQvrKZheYwHkDUgc1XRYmbXDqhk0YBOngrNkDSNDp0svM+GOJ+1Y2776LfUmLsfHcklMDDvVgXAkN08FM3LGOg8EMytEjbm4HJMlqBlOUm5RQo2sxEtaWglUklc5wIKJqXZgeaqpnFu3NKQPkmLghKhwIHkkXk81DM63O6YV8AU8gDSTfRUvEtYKh+FQVJfkb2jrbNJuBcD4KynlJkHduy+ova6ouM+2fhOH1DHROjimfHoNQSARY+4/BaV7TNHmZdT4PHX8P1RgawSsYXM1W89D8DMOwyppmgB0zI5/hdqw3BM0lTA6N9yLa+IW+4HIZiNO1ugkpJAQNu678Qq9M/6WX61XiaNw51ibJocuOuSVxdk86h+dda438FGnM2QB6Hg31VSfYt+SMQeC/VNH9i35IxA55CkkkgQcHJwco0roAIDlI17dkLm03UrDogGYP09UHrfBNNVAAmlrmDbUCRpB+8BeD8NUwc6rzCwYA34r6d48w52L8DY1Sxi8gpzNFz7zCHf5FfNuDWhp6+QnRzmkW8lh1a8rO5+OyXhcQqOD1V5AIs8bXuiIvaAVL62ZMQYQ7ujQ3Vux1nX5XWdLgmaplxSuLAHDQqypqhzngG11URP7gsUXTTta4cyq5qh4dmmpGl3RWrXhoAVDS1Tbc1YsqGm26oZqRYCWyjmlDWEk6WQrp29bKvrqoFpFzYBBNmYxegZjuPxMqHfzWn/SSD9roEY6opad9o2tiA0AGwCpsdrvUG9vcgy6HxWVZxZDPOYpS9hOgc4aXV0IOS4KJzSfJ6xTcTxRW7wcWhXFHxPTzi0j7DzXjfrhDQc978xsVPBiDmggPI06ptjZCmj2b6Xobn9K1G0mJ0L4yC9mUjUHmF874lxnLTuMNE50koNs59kfioaTjHHM4FRUNbH4ABS8E0rBZot0brHqFnDnEc7aF16Ke00Y2yA7j3FafAscEg9q48UFhfD1Xi/DNLW1TT288faNuNS0k2WbE0uC1phnuwtNvNUl+5UesQ4jnaDe4topfXL8lkMNxuOSFtibI52JttcSKStyLqWcEcrqvqHi+4QJxNp0D7lQuq3uJvt5KBXIKc8AHVCzTAbpjpxlOqEqJr90EknQBMkVyYJPVMDyXB2QAnu73T42x1lPJA+HPHUsztdfQOB0PgbaHqgpnxFwjJInFzbPa48/DorfgWOiqMUEdRHIZWAuabd0N6m2mpWhqoGeDqZouGcCbh2HyVb2FrA24cedlc8En+f0Dhs6nmIUWKvmxNrcOjLWUoN3Ob06Ky4djZHjTGR+zDTvDbbAGwsqNP7ka9U/5tmrLtUwu1TXOsT0XLldtHnES3CWayjFzzTSSdEAelYJrhFH9i35I1A4H9T0X2LPkjkDnkKSSSBBJJJIASkafFRhOG4QAZCGynsn6skBY5vUHQ/NfK8tF6hiGJ4bJ7dPK+M2/qkgfcAvqWA2ddfPPpWoHYJ6R8Ska0iOqLKpotYWe3X7wVl1UfFM3/jpVNo8+7T+dvYb76LQCUBjLncC/gqmuw502aqpyLjvEXRUQkio4Xvtd7QRbkskeUbc/dou4piGDVcbWZJN9Qfiq+KZxjBJXXTAvASyiEJcmopcR222VlHiIuBdYqOpyEXcbo9lcLixKpcTSppmu9bJ6WUTz21xbdUsOJRus0nvFKTHmQygNy2Jyi+vmmjjbfAs8iSKHjxwhqIaNp9lmcjnroP8155XsfTC5LTfYFWvEuMSYhitRUZjqcgIPILPVEj5nlzzcroYcTirOdmzKXRJBilTA3I2Qlo2aeSLOLVTo3Na5ozCxKqiLclI19hbZXuC7KPVa6JGBxLrE9fNWlBhsontP3SIxMGSDV8Z5j/nVBwkOY5vIhWgrn1UUL5pS6SgpfVwX63hJNgPFtz7kriqF9SSZ9CcF4i+bhekZNE4S01I1zSzUTRfquHu0I5LHekD1KVjahjgHOAcxwHtX8FScM44azCqanpJjHiFDRGm7MyaVMJcSWN8QDmAPiOaA4ldDS07eykkMhDszL3F9rC+ptf4LK8Cs2R1Trkgw7iT1ObsJXFo2BIK0kWNslYXCVpsF5z61TyxRv7WN7Xe0D7TDt8CrzCw9tPG5r2Stde4a7vN8xySzwNKyYam3Rq2YnnkAJtfoEWK5xFgSVR0kEhe1+QlrtiiamTsjYHT7iqFEvcg51bI7Z1rH4rpnMk4tcgi/wCKpYqwFzzr3ANTsrBlU18TJGguOxHgUyiK5GjOG0dRSl75G94Zmm1nEkaj4qDgKGN2KVzs5DWwiwdve+oSwyRrMMnfMZOxjaXXZ3i3Ty/62XOAJmy19dJLMxzsrWscBqRe4Hw1VuReBXh5yG5iAiPd81b8OZfpN5vqYSPvCpXSMYLucArPhKo9bxOodGP0cUVibHdx0HTkVRp4+ao06t1idmpfum3K686phdquyeeQ9p13XCddFxupCSCT0rAfqWh+wZ8kegcBFsFovsGfJHIHPIUkkkCCSSSQAhunDdNCkAt4oAmh1HivL/5QGC9rT4PjbGDMC+hlI6e0wn4FenRusFkPTKw1Ho8rACf0VRBJfp3rH5qvKk4Mu08tuRHgdCXZHNA7trFMqHB2HuOzoZQ3L/VKJja6KFwtYjqEK1mYPYSRn7xtysufiOrmIYqi4s3b5J4qO0F+miFqJBEexDS0+I3HIplKXxNcHAgZjopZTFhfa672PQqWOpew3uoC1haHWNz1XcwYQ8gWBv4Jdt9j76JpsdFHC7LGXyTdwOBsGDmVTz4nJ20bo3l8hOVrr2ANrE296DrKqJ7DPJM/1l8xAhDO62MbEHkT0VW6fSQkkkkZfitcMaSMc8jtjJnSF+Vx0abWUbhcJucucbc9ypGgOte5Vt0VxVjoqKWb2GE+PJHO4crntzNiu0bldp5KzLkiADfgjoqbFJW2Zc3H7Sqnkdm7Fpk1bK6OgdBdj3DNsR0Sjgcy73ZmxahwHNaOj4MrK4E1FZHTgA2s0uLj0Us/o0xeQ5KGCrqAdiWEApFk+2WS06+DJz1UoyNzWs67XAkadFaTcQQVziK3tsxYBFOHXc0gWAPyvuFPVejriWmaXS4bMLeGyqa3h/FaG4mpJGgfrEaeathNP5MM8Eo9jcVLH1T54nMOgLiwWaXc7DojOHKub6UpjTXdIHhrmXsXMJ1A+aoZ2TNuSSR16ptLO+nnjnjJDmODgfIqxpSRWm0z3qjwqXDh2VRCXMa4dyQ7gnXUeBGyq6+iaHyxwSF0MkhdE1+pF9xf3FaRmKUU9D2sWetoZwyooph3XwOPtxW5tDmuHhZB1tK6GoqIexbNdwkeyxGXe1rHxOvxXOap0bm3tsxrHmGSYOiOjgx7bX26Kyw+QTRtfe8YNrnQ6abe9CTZhVygNPZ58zCRYuG1/NTtd6q2Gdmc97K9oFw5v/ROFmkoqmpoaWR9PJ2eZjmPYW3bIOh8dviLKbhX0e8VY5QfT+AVGGyXlMUlNNMYn6Ad4EixB/yVXHI+KoFPE8tkcBI030d0Gumy9i9EOWPgqACEwvllklc0tLSbnex5eOyuxwUuGZp5ZY/KPZm6D0ZcYVUo+ma+iwyLY9lIZ3nyAsPit9hmFU+B4czD6Jp7OPUucbvkdzc49VZvNjobKIgXur4YYQdopy6nJl9zBy0uOg+KaInX1U+l9l3TorSgiZERqbJ2RPskUAeiYJ9UUf2LPkjUFgn1RR/Ys+SNQOeQpJJWQIJJK6SAEF1c2XQUAPuANkNiWGU3EGF1eFVpc2nqozG5zdSy+zgPA2KIuCuMsDz+ShriiLp2j554n4S4g4TkMWIYXVyw3OStp4nSQyjrdoNvIqjpsD4oxCOWtw3hvGKilpY3SzVPqzmRsYPaOZwANhrYL6tpqyamJMUjmF29nGxRYrH1rHU1ZM59PM0xyNJ0LXDK77iVT+ukbf3pOO1o+MMTJmnZLcuMkQ18OR+C5S3mdkzAm1r32VljOFHCJqvD5T+nw+qloZG7mzD3T7xZUcZlA7ps0XWeUaL4StJlp2QboHFw5+BRoo5ZKOVwjBiG55+4IOCucImseG2toBzKn9bmhY5jgbu3AGyiiJdmGqrvNn3u3cHzQozHuN2R+LkuqJMuXU205ojDcLIYXzjKSNGncrSpVGzO43IEpML7SQF5dbwV/Q4Lh7W5pHvzDl1RBwuSKIPA1I+5C1OeKNr7OAcS3XqFTKTkaYxUVwGB9DSv9h3hYoyDiilomlsWHtnsNbut5rMSPe9+pddXfDuGQ1FZAyrYbSESNu24Ia7vA9NAdfBV7LLPXkuEaGh9JMZeIaWlgpHuIAdlvY9NfJauDj+Sla11a7PTPjD2FuhcOenhqvP56KkqYJaKNkML4ntqaeSO+eVtwHN1/q94DqCmyyF9TQvnlbPDVusx17NblIB06X+aHjiDzSZ6JD6QpKsPgjgBjl2a4XzDcD5o76KixOIAxDs5bOaZDYXH6pB2PmslhsUb4RCyWF81ODIHyAatzWdGeumw5rQ4TjFPQ0zCwNNMBdzGmxDTzbfz2VThXRCk32UPF3ATDCyso4OycyM522FieflZeY4phxp7ue2ndfW8PTrpoV9ExzUr6JlQQJYZ2lpZcuab63Fj93JeZ47gjC2SaXDal1KS4+u4eTIGsvu9puR5nbqrsMvgryxXYHwNjUNJQuo6hpLGNDmguG5O4HlqtZXVTqaennfCZWOblc0OtePwPvuPFed02FGjbDUtE7qAvEbajLYP12O4Dh525K+je6BsJqH1MdNITG4hunjYX0da2mylx5sXc6oLqO9VzTxC9JHLkGa2ZzTe1+h8VFKyNxHZEm7hZxsCep9xC7iTIKeGjrcMqxMydj4ZmPFuzsTY6aNvpp96GdWwSMzxvJuBqSNCPHzRtGUgyCtnikc195nxNLWOJsHdBcc7L6O4MpxRcI4TDkax3q7XEN2BOpXzVgsL8QxGOms6V8+WNhvbvX9n5r6njHZU0Mdg3IxrbeQAWjCZM74E82KjLknOuUwlXlB267m8QmLlkAPzBIu6JqQQB6Rgf1PR/Ys+SNQWB/U9F9iz5I1A54+X6Jva2UXajqmufqgQl7Y9F0SEqIOCcLoAkBJG6e0C2qhBIXcxQBNeyQcoMx6ppcbboAMDxzKmjeAdwqouvunBxGzvvQQ0eP8ApvwNmF8YRYzFGGU2MUv6XKLD1mKwN/FwIPuXlVVPGAQNM2gX0d6UMAk4l4QmiiY+WspD6xTBouSRo4e9t/gvmJz5HgR9n32uLbHdZsqpmvFPgsIJ7AEEX5W5FKrrZGwyl1i92hJ1c73oGHPFNZ9t+SMqIcxuAXN0ICrLmyuoWPkAbHSxuq3yAxyPuTqQLC5sNeZWuoKChw5ofLE6urXX7Woc+8LT+y0W71je5VTgMEtFnrpYmtNIWuJkuNHEgadSduWi0VZQxx2EUjXUrC10YcbPnve2nib93YABNJ2qK48ENXNE9pa3ZuhdyFxeyzlW9pIa6VzmtNwOilxSqdSzGOzjIe9l2OvUIWKmkqs7nWjjjb2ksriA1g6eJN9gkSLd50QPqG5mNcWAXLhyF0bTVtZTSdhSuL4zFYOe25Z+0RzHmEQ7DhQmMD9Jk75JFtbaaIrhthpMUop8jJbzZJWvOhY7S9vepBuwrDcPZiFJV3BhNPH2jJGAkW1JaPK1x4Eol+FOqKaJsbXMaxxqmyRxkdkbEEjw3uP6oVpTCmwaCOopo5ZnetTQfpCLZAw6j3m3iAtVgdbhramWjc2IdnBJBO0MvvcnLyBu7T3pJWPAyH0FV4fTQ1kIMwgkDpXHUluhDh1GtwfBV9RW1kEVSYv01NELiCcZrR5zoPAHXwJWldUGiiDaYN7anjsxzwbSaaDKdDpcWv0WSxaSabLHSmSPtxnjuMpzj2mm/Pp1110SpWxpPiy8wfFmxUc30bNkLIe0FPUgmOUaEsdpoTc5TyItfZHTvmjgp8Ywirkw+WZpdDUtd3Q8e0x99HWOjgdbHmFluCp4qp+IRVpIghpXyuLr5o7EZg0jTQZja42RFTVx0fbUdVO0Q1UbJZmuOdodr32EbENyvHvGysUaM8pWWVVJDj1FUYnBA6OraezxrB23bBKP9fHb2P8AxDS4F91jcQp4MMqH0lFiM1dQPdmgfIzKb22I/aGxOx3C0FRDV8O4o0SSxNrXQR1tE+E9oyenfoQ13MaFwB21aQVlauop6urqTRRdhSOl7WOEG/Zk7jyBvbw0TsWLHtqZYSOzsMxsb66Iqao9VpRLBExr2jK43/Wdz8UDYxgE3uTfVF4ez1mphe4DvSXd7ioHPQPR/hkNZj/DtM+IPl9YEtQ+xBLiMxFuQHRfQUzi5zj1P3Lwr0WSO/Lqkz+w7tANOZadl7m862V2EzZ1yRkriSSuKhJLtkrIIEkkkgD0fBPqij+xZ8kagsE+qKP7FnyRqBzxEnRIbaru+y6GoEOg6qQOFlGW6LmqAJc4TTJqoiTZIFAD+1XASU0i6kYLIAblU0bbhNspGIAIjORvdAvY6L5e47wU4XxLWV4N4XkskAt+jlNr6eO6+nmuXgvpQoY38X4jTSNtG8NcQfFo1+5V5FwW4uzysAxyOGYvaTdF0k5Y9rnxmZu5jJ9odD4J1XQOo5WMkPccbB/h4qJ7jBJYDKGm+m5Wc0dFpm9ap5KelqJ3vqJBNUvkAJFr2ZfnlFz5mytqepdDUMlZTGWWNuWEOdYMvpmcegHLqVSYXkdQ97Qdq4uI0JAAt563SjrZwyB5cXzS1BY5gNg5ul/drZSV3yRPhdW4pUkntYYif0hB7zr735pwe2aqZTWyxREXbve25PUouB1PRsMMj3BrXHtAOZFre4ElC1AhoaaS95q0yXEjTZpj3296KH3IMrasGeVhke/9KCNgALW96LwuoEQdlbE5zhnaZNSFQ9uwxue5/eaBdvXRcjrxHA9rQA4uGW3IW2UUPuNVNiTGB4ayR0TH3DOZuND8b+5O9ej9cjp4Zi9xMdQ/L3RlAFyRzIBPwWXficjsPhcQ4P7RwkIO4Fi233qHDawGqhe1zgXHKXg2I0U7RVI2c/E8lR69IImWq5M7c50a0Os4NPkCqeCaXEycNZHNPM55qKY21Lh7TdOrdR4jxQZoX+q+tRDMxpJLXG+XUa+R11UL5XtdenMkZtnDmOsbC/dPjpuEJESkXeD10clVBHWSOMD3E1Lo2WMoc1zQ4j9oXFxsd1HX1rhbC6gMqqSGD1doP/aMfpfI4bd7UeGiXZRiqie2bM/EILNAFrSuOVwt+qbi/wD1QtQ/1+vxN0sLQ7MGOaLWbkOp6cj8VJWmCSy4lSUlE59U7s8NLoabMRma2Qk2A5gm+nK/igaCBxlL7BrQNwiZ69la0Rs7jXOaMpG1hpb3aFT08HYsF99iEtlsUdfTuqJmwtPMd4/qhXdNhkFCeyie55jdbM7n1KForxe00DMdHc1Z0gD+886lRZZRs+AIBFxhhT2uOsjj/gK9qLiSbrxjgH/2iwtx37Uj/CV7MFbh6Muf3Cskku2WgoOJLtlxACSSSQB6Pgn1RR/Ys+SNQWCfVFH9iz5I1A540Y7clwtUgF0iy6BCHKlkU2RLIgCARFObHZShmqdlCAIRHrsnZU/KlZADMqWy7mCagkcHarxv0qQH8rZZbH9JTxm/kLL2JeW+leNoxuBwOppm/wDqKryPxLcXuPMaiMyxuY478+izs9LJDM5sjSHLVSANJ8FW1sZmANzduyyxkanEpmzuha0ZtA65aNkyplMkUTmnK+J2gHjr81LJEWP1GhS7LtB3Rp4KxMpaJu1M7jNmDABlsf1if+iFnqXvDGve9wZcC52TpIHsbzN1A7Rpa5SkI4ji4dlmBsc1iFBm72h58vJJz25S0bnxUerSFLRK4Cu1DGGMu31t0TqEU7ZyJpDHFlc67W5iSBoLeKDeXONwLlKPtAQRcHr0RRJoYcQENPSTtsySRksTWZg64vsfCzj52UcUMmIyucxhJYWtBHst8+m33oGjoJKmRjbWaP8A3h/VHNXTauOjozBA1scT3Zyd3PdyJPPbQJWyassserKOCoo6mjqR662VsPqrIz3NLZ8x0NydtwqCuqHOmmpaduWMynOQP+1I0HuQgdLJVGUBwNy6/O973ujqeG1nE6kZj1GqVsZRI6TDiBEXNcMwJaHdBzR4c51mG1mndKATlxkmddzu63+q0clK5oDhbmkstUQmQjO1osAADp1RtM67mgC9lXtfc69LKyoIhmzXN0kpFijZt+AxfiLDQP8AW/7pXswXjHAYy8UYfrp2h/8ASV7M3QALTp+VZj1KqY5OA0TE5uy0mYR0TU4i65ZAHEkuSV0Aej4J9UUf2LPkjUFgn1RR/Ys+SNQOePgC66VxJAgkk5JADUkkkAJNeU5McgBqSSagk64kDTovMvS43LiFA8D2oHX9zl6ZyXn3pehBhwufLzlYT7gQFXk9rLcT8jymXc36oSQbouUHXzQrhrqsN0dGgKaIG/dBQozRnaw8FYysDuaEmi5AKYyK3AhdMD7QsFA9jJHXsLJ72O2tZJsTst1ZvK/TvgGkomudfYp0eHveLk6IljNdRdEMeGmxtZDm/gPSSB4qCMakXIUraEE+wjGywhpGnml2rANCl3DKKXSGilGRrSbBuoHRcfDGWW1zX3SdOCe7qmuJI80ORKjZFYMBAOhKnhiPZjmlTwZzY7A7o9tODbKbAJNw+wiZdrT1KcGPeQSCpextzT22aEjY+0UUeQnmVa0BsbHdARND3gXVpRQnPca8kjZZFGw4HY78oaB4FwH6n3Fev3XjGHOkp8skZLHt1a4cit3gPGQmLafEAGnYSjb3rXpsqSpmLV4ZN7ka0FLPbRMikbK3PG9r2nYtNwV06lbVyYDpmy7i6jkqHDZqfYHdODGgai6ABDWv5sAUjJi4X2Tnxsv7ISZCGjQqAPTMD1wei+xZ8kcgcCFsGoh/9lnyRykc8fBukuAEHYrvuKBBySVilY+KCaGpLuUpWKAo4mnZOOm6jkdlbd/cHigKOEgJl7qGTEaJrS51TE0DcuNrIWqxmhpqV9UKlksbGl36O+oG6CdrLJY70qwtfw/TPJs5lSLA6GxaQVVVXpRr6i5w2mjp4tmue27yOpWXxPFK3Fnvlr55Z3nYuOjfILPPImmkaMWGVpszU7dT5oORuqspWXJQkkemxWKn9HQjQE4JjmtI1RToTa4vdDvL26ZVKiyG0iEQNce9dMdAGGwRLH97Vq6+IuJOuqnbIjdEGbA13PVJ1Of2dFOI8nIpF/KxCNrFc/oGdFa1gl2Wl7WU3O5bdPBDtLI2yJ3kDGC3IKaGDOb8gpWxNItZPDC3bQqaYWmdbGAdBZEwDunwKga3QmymhfytqUjTHTQ52h1TS3ORYJ5jLiSSfKyfDESNio5J4OwQhzxyKv6CDsyL3HRBU1K2MggXJVtTQufbSyrkpfQ6osYCcoAVhA0DKOaDp2dOSsqaMuI0Ve2Q1xfyWlFUTQWEUrmA7gHQq7pMXqbAS5HDwFlSwwmwFijoQQLWKthkyR6KZ48bNHS18UzdXBp6FFsc2U2jc156BwJ+Cz0YI05KT1cOF2l0bh7L2EgtPW61Y9RP5Rlnp43aZeutfVIGwROAtOKYZHLV2FQCWuc0WzgGwJCmlw6MPNiXADfqVtjb5MLpOjdYH9T0X2LPkjUHg7cmFUjTyiaPuRiYkr/yewj+jaT+7CX5PYT/AEbSf3YVgkgCv/J/Cf6Opf7sJfk/hP8AR1L/AHYVgkgCv/J/Cf6Opf7sJfk/hP8AR1L/AHYVgkgCvPD2EHfDaT+6Cim4VwKpt22EUUlts0QNlapIAoncC8LvvmwDDHX3vTtN0jwLwuYzEcAwzIRYt9XbYhXqSAM2PRrwYNuF8GH9kZ+CR9G3Bp34Xwf+EZ+C0iSiibZmD6MeCT/8qYL/AAjPwXD6LeB3b8JYIf7Iz8FqEkUgtmW/NZwMNuEsE/g2fguH0V8CHfhDAz/Y2fgtUkikFsyn5qOA/wBz8C/g2fgu/mq4E/dDA/4Nn4LVJIoi2ZX81XAn7oYH/Bs/Bc/NRwF+5+BfwbPwWrSRRNsyf5p+Av3PwL+DZ+CX5p+Av3PwL+DZ+C1iSKC2ZT81HAX7n4F/Bs/Bd/NZwL+6OB/wbPwWqSRSC2Zb81nAv7o4J/Bs/Bd/NbwN+6WCfwbPwWoSRSC2Zf8ANdwP+6eCfwjPwXR6MeCRtwrgw/sjPwWnSRtQWzOD0b8Gt24Ywcf2Vn4J7fR/wmz2eHMKHlTN/BaBJG1Bb+yiHAfCzduHsMHlTt/BPbwTw032cCw4eUDVdJI2oLf2VA4R4fbtg1AP/wBLU78k8BG2EUP9yFapI2oLZV/kvgg/+FUX90F38mcG/ouj/ugrNJFILYFFg2HQMyRUVOxvRrAAn/RVD/8ASQ/7IRSSkgbHGyJgYxoa0aADknJJIA//2Q==" alt="Fatih Şahinbaş" width="132" height="132">
+    <h1>Fatih Şahinbaş</h1>
+    <div class="subtitle" data-tr="Senior Software Development &amp; Database Specialist" data-en="Senior Software Development &amp; Database Specialist">Senior Software Development &amp; Database Specialist</div>
+    <div class="animated-roles"><span class="typewriter-text" id="typewriter"></span></div>
+    <div class="motto" data-tr="&quot;Oku, Yaz, Düşün, Düşle&quot;" data-en="&quot;Read, Write, Think, Dream&quot;">"Oku, Yaz, Düşün, Düşle"</div>
+    <div class="hero-badges">
+      <span class="hero-badge" data-tr="20+ Yıl Deneyim" data-en="20+ Years Experience">20+ Yıl Deneyim</span>
+      <span class="hero-badge" data-tr="📍 Bursa, Türkiye" data-en="📍 Bursa, Türkiye">📍 Bursa, Türkiye</span>
+      <span class="hero-badge" data-tr="Python · C# · Rust" data-en="Python · C# · Rust">Python · C# · Rust</span>
+    </div>
+    <div class="hero-cta">
+      <a href="#projects" class="cta-button" data-tr="Projelerimi Gör" data-en="View Projects">Projelerimi Gör</a>
+      <a href="#contact" class="cta-button ghost" data-tr="İletişime Geç" data-en="Get in Touch">İletişime Geç</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= EXPERIENCE ================= -->
+<section id="experience">
+  <div class="container">
+    <h2 class="section-title" data-tr="Profesyonel Deneyim" data-en="Professional Experience">Profesyonel Deneyim</h2>
+    <p class="section-sub" data-tr="2000'den bugüne; sağlık, enerji, ulaşım, üretim ve holding sektörlerinde yazılım geliştirme ve veritabanı uzmanlığı." data-en="From 2000 to today — software development and database expertise across healthcare, energy, transportation, manufacturing and holding groups.">2000'den bugüne; sağlık, enerji, ulaşım, üretim ve holding sektörlerinde yazılım geliştirme ve veritabanı uzmanlığı.</p>
+
+    <div class="experience-timeline" id="timeline">
+
+      <div class="experience-item reveal">
+        <div class="experience-dot"></div>
+        <div class="experience-content">
+          <div class="company-name">Yeşilova Holding</div>
+          <div class="job-title">Senior Software Development and Database Specialist</div>
+          <div class="job-duration" data-start="2021-08" data-end=""></div>
+          <div class="job-loc">Bursa, Türkiye · <span data-tr="Tam zamanlı" data-en="Full-time">Tam zamanlı</span></div>
+          <div class="job-description" data-tr="eBA workflow yönetim sistemlerinden sorumluyum. Geliştirmelerin büyük bölümü IFS ERP sistemleri ile entegre çalışıyor. Ayrıca Python/Django ile third-party servisler geliştiriyorum. Kuika low-code platformunun proje yöneticisi ve geliştiricisiyim." data-en="Responsible for eBA workflow management systems. Most developments are integrated with IFS ERP. I also build third-party services with Python/Django, and I am the project manager and developer of the Kuika low-code platform.">eBA workflow yönetim sistemlerinden sorumluyum. Geliştirmelerin büyük bölümü IFS ERP sistemleri ile entegre çalışıyor. Ayrıca Python/Django ile third-party servisler geliştiriyorum. Kuika low-code platformunun proje yöneticisi ve geliştiricisiyim.</div>
+          <div class="project-tech"><span class="tech-tag">Python</span><span class="tech-tag">Django</span><span class="tech-tag">LangChain</span><span class="tech-tag">Oracle</span><span class="tech-tag">IFS ERP</span><span class="tech-tag">Kuika</span></div>
         </div>
-    </section>
+      </div>
 
-    <section id="experience">
-        <div class="container">
-            <h2 class="section-title">Profesyonel Deneyim</h2>
-            <div class="experience-timeline">
-                <div class="experience-item">
-                    <div class="experience-dot"></div>
-                    <div class="experience-content">
-                        <div class="company-name">Yeşilova Holding</div>
-                        <div class="job-title">Senior Software Development and Database Specialist</div>
-                        <div class="job-duration">Ağustos 2021 - Günümüz (3 yıl 11 ay)</div>
-                        <div class="job-description">
-                            eBA workflow yönetim sistemlerinden sorumluyum. Holding ile koordineli olarak mevcut ve gerekli geliştirmeleri yapıyorum. Geliştirmelerin çoğu IFS ERP sistemleri ile entegre edilmektedir. Bunların dışında Python ve Django Third Party da geliştiriyorum. Kuika platformunun proje yöneticisi ve geliştiricisiyim.
-                        </div>
-                    </div>
-                </div>
-
-                <div class="experience-item">
-                    <div class="experience-dot"></div>
-                    <div class="experience-content">
-                        <div class="company-name">Agito Software & Consulting</div>
-                        <div class="job-title">Senior Software Engineer</div>
-                        <div class="job-duration">Ağustos 2020 - Ağustos 2021 (1 yıl 1 ay)</div>
-                        <div class="job-description">
-                            NNHAYAT Pension Health tarafında yazılım ve veritabanı geliştirmeleri yaptım. Kullanılan Teknolojiler: ASP.NET, C#, Pl-Sql Oracle, SVN, Jira
-                        </div>
-                    </div>
-                </div>
-
-                <div class="experience-item">
-                    <div class="experience-dot"></div>
-                    <div class="experience-content">
-                        <div class="company-name">MNK Enerji Kazan Sistemleri</div>
-                        <div class="job-title">Software and Project Manager</div>
-                        <div class="job-duration">Haziran 2020 - Ağustos 2020 (3 ay)</div>
-                        <div class="job-description">
-                            Şirket bünyesinde istenilen ve gerekli yazılım süreçleri, paket programların geliştirme ve entegrasyon süreçleri ile şirket istekleri doğrultusunda yeni gelişen teknolojilerden sorumluyum. Kullandığım teknolojiler Python, C#, Django, Java, PostgreSql ve Mssql'dir.
-                        </div>
-                    </div>
-                </div>
-
-                <div class="experience-item">
-                    <div class="experience-dot"></div>
-                    <div class="experience-content">
-                        <div class="company-name">Kaplanlar Refrigeration INC</div>
-                        <div class="job-title">ERP Specialist</div>
-                        <div class="job-duration">Nisan 2019 - Ocak 2020 (10 ay)</div>
-                        <div class="job-description">
-                            Şirket bünyesindeki web portalının ERP sistemi IAS Canias sistemi ile entegre çalışır; Python, Coffescript, jQuery, JavaScript, Ajax ve Django teknolojilerini kullanarak geliştirme süreçlerini yürüttüm.
-                        </div>
-                    </div>
-                </div>
-
-                <div class="experience-item">
-                    <div class="experience-dot"></div>
-                    <div class="experience-content">
-                        <div class="company-name">Burulas A.S</div>
-                        <div class="job-title">Software Engineer</div>
-                        <div class="job-duration">Kasım 2015 - Nisan 2019 (3 yıl 6 ay)</div>
-                        <div class="job-description">
-                            ERP Projeleri, Socket Programlama, Hardware Programlama, Veritabanı yönetimi ve geliştirme, mevcut projelerin geliştirmesi ve Microsoft C# .NET ve Sql Server Oracle ve MySql platformlarını kullanarak yeni projeler geliştirme.
-                        </div>
-                    </div>
-                </div>
-
-                <div class="experience-item">
-                    <div class="experience-dot"></div>
-                    <div class="experience-content">
-                        <div class="company-name">Samet Kalıp Ve Madeni Eşya Sanayi</div>
-                        <div class="job-title">Software Specialist</div>
-                        <div class="job-duration">Mayıs 2013 - Eylül 2015 (2 yıl 5 ay)</div>
-                        <div class="job-description">
-                            Mevcut CRM ve ERP otomasyonlarının desteklenmesi ve geliştirilmesi.
-                        </div>
-                    </div>
-                </div>
-            </div>
+      <div class="experience-item reveal">
+        <div class="experience-dot"></div>
+        <div class="experience-content">
+          <div class="company-name">Agito Software &amp; Consulting</div>
+          <div class="job-title">Senior Software Engineer</div>
+          <div class="job-duration" data-start="2020-08" data-end="2021-08"></div>
+          <div class="job-loc">Türkiye</div>
+          <div class="job-description" data-tr="NNHAYAT Emeklilik &amp; Sağlık tarafında yazılım ve veritabanı geliştirmeleri yaptım." data-en="Software and database development on the NNHAYAT Pension &amp; Health platform.">NNHAYAT Emeklilik &amp; Sağlık tarafında yazılım ve veritabanı geliştirmeleri yaptım.</div>
+          <div class="project-tech"><span class="tech-tag">ASP.NET</span><span class="tech-tag">C#</span><span class="tech-tag">PL/SQL</span><span class="tech-tag">Oracle</span><span class="tech-tag">Jira</span></div>
         </div>
-    </section>
+      </div>
 
-    <section id="skills">
-        <div class="container">
-            <h2 class="section-title">Teknik Yetenekler</h2>
-            <div class="skills-container">
-                <div class="skills-category">
-                    <h3>🐍 Backend Development</h3>
-                    <div class="skill-list">
-                        <span class="skill-tag">Python</span>
-                        <span class="skill-tag">Django</span>
-                        <span class="skill-tag">C#</span>
-                        <span class="skill-tag">ASP.NET</span>
-                        <span class="skill-tag">.NET Core</span>
-                        <span class="skill-tag">Java</span>
-                    </div>
-                </div>
-                <div class="skills-category">
-                    <h3>💾 Database & ERP</h3>
-                    <div class="skill-list">
-                        <span class="skill-tag">Oracle</span>
-                        <span class="skill-tag">SQL Server</span>
-                        <span class="skill-tag">PostgreSQL</span>
-                        <span class="skill-tag">MySQL</span>
-                        <span class="skill-tag">IFS ERP</span>
-                        <span class="skill-tag">eBA Workflow</span>
-                    </div>
-                </div>
-                <div class="skills-category">
-                    <h3>🌐 Web Technologies</h3>
-                    <div class="skill-list">
-                        <span class="skill-tag">Web Tasarımı</span>
-                        <span class="skill-tag">JavaScript</span>
-                        <span class="skill-tag">jQuery</span>
-                        <span class="skill-tag">Ajax</span>
-                        <span class="skill-tag">HTML5</span>
-                        <span class="skill-tag">Blazor</span>
-                    </div>
-                </div>
-                <div class="skills-category">
-                    <h3>🤖 AI & Data Science</h3>
-                    <div class="skill-list">
-                        <span class="skill-tag">Machine Learning</span>
-                        <span class="skill-tag">Keras</span>
-                        <span class="skill-tag">Image Processing</span>
-                        <span class="skill-tag">Data Analysis</span>
-                        <span class="skill-tag">Algoritma Tasarımı</span>
-                    </div>
-                </div>
-                <div class="skills-category">
-                    <h3>🏗️ Architecture & Tools</h3>
-                    <div class="skill-list">
-                        <span class="skill-tag">Software Architecture</span>
-                        <span class="skill-tag">Kuika Platform</span>
-                        <span class="skill-tag">SharePoint</span>
-                        <span class="skill-tag">MODBUS</span>
-                        <span class="skill-tag">Socket Programming</span>
-                    </div>
-                </div>
-                <div class="skills-category">
-                    <h3>🔧 Project Management</h3>
-                    <div class="skill-list">
-                        <span class="skill-tag">Project Management</span>
-                        <span class="skill-tag">Team Leadership</span>
-                        <span class="skill-tag">System Integration</span>
-                        <span class="skill-tag">Process Design</span>
-                    </div>
-                </div>
-            </div>
+      <div class="experience-item reveal">
+        <div class="experience-dot"></div>
+        <div class="experience-content">
+          <div class="company-name">MNK Enerji Kazan Sistemleri</div>
+          <div class="job-title">Software and Project Manager</div>
+          <div class="job-duration" data-start="2020-06" data-end="2020-08"></div>
+          <div class="job-loc">Bursa, Türkiye</div>
+          <div class="job-description" data-tr="Şirket içi yazılım süreçleri, paket program geliştirme ve entegrasyon süreçlerinden sorumluydum." data-en="Responsible for in-house software processes, package program development and integration processes.">Şirket içi yazılım süreçleri, paket program geliştirme ve entegrasyon süreçlerinden sorumluydum.</div>
+          <div class="project-tech"><span class="tech-tag">Python</span><span class="tech-tag">C#</span><span class="tech-tag">Django</span><span class="tech-tag">Java</span><span class="tech-tag">PostgreSQL</span></div>
         </div>
-    </section>
+      </div>
 
-    <section id="projects">
-        <div class="container">
-            <h2 class="section-title">Önemli Projeler</h2>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-header">
-                        <div class="project-duration">Şubat 2024 - Devam Ediyor</div>
-                        <h3>Kuika Platformu ile Süreç Dönüşüm Projesi</h3>
-                    </div>
-                    <div class="project-body">
-                        <p>Kuika low-code platformunun kurulumunu yaparak, Linux ortamında başarıyla çalıştırdık. Mevcut eBA iş akışı süreçlerini Kuika'ya taşımaya başladık ve bu geçiş sürecini ekip olarak sürdürüyoruz.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Kuika</span>
-                            <span class="tech-tag">Low-Code</span>
-                            <span class="tech-tag">Linux</span>
-                            <span class="tech-tag">Process Migration</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-header">
-                        <div class="project-duration">Şubat 2022 - Devam Ediyor</div>
-                        <h3>Fikir Yönetim Sistemi</h3>
-                    </div>
-                    <div class="project-body">
-                        <p>Python ve Django teknolojileri kullanarak, Yeşilova Holding için yapılan web geliştirmesi. Kullanıcı kimliğiyle bağlanarak fikrini önerilerini girdikten sonra, eba web servislerini ve oracle veritabanını kullanarak eba tarafında yeni bir akış süreci oluşturuyor.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">Django</span>
-                            <span class="tech-tag">Oracle</span>
-                            <span class="tech-tag">Web Services</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-header">
-                        <div class="project-duration">Ocak 2022 - Mart 2022</div>
-                        <h3>Image Similarity Search</h3>
-                    </div>
-                    <div class="project-body">
-                        <p>Keras ve Flask kullanılan görüntü tabanlı görüntü arama motoru. Her veritabanı görüntüsünden bir derin özellik çıkarır. ImageNet önceden eğitilmiş ağırlıklara sahip bir VGG16 modelinden 4096D fc6 aktivasyonudur.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">Keras</span>
-                            <span class="tech-tag">Flask</span>
-                            <span class="tech-tag">VGG16</span>
-                            <span class="tech-tag">Deep Learning</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-header">
-                        <div class="project-duration">Ekim 2023 - Aralık 2023</div>
-                        <h3>Görev ve Seyahat Formu</h3>
-                    </div>
-                    <div class="project-body">
-                        <p>Şirketimizin seyahate ve dış göreve giden personelin mali ve diğer bilgilerin, süreç tasarımı ile birlikte oluşturulan proje.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Django</span>
-                            <span class="tech-tag">EBA</span>
-                            <span class="tech-tag">C#</span>
-                            <span class="tech-tag">Oracle</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-header">
-                        <div class="project-duration">Mayıs 2015 - Devam Ediyor</div>
-                        <h3>MODBUS Test Makineleri Uygulaması</h3>
-                    </div>
-                    <div class="project-body">
-                        <p>Şirketimizin bünyesinde yer alan, kalite biriminin MODBUS protokolüyle çalışan veri alan ve veri gönderen cihazlardan gerekli olan verileri alıp, cihazlarda tanımlayıp .net ortamında service olarak çalışan uygulama yaptık.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">C#</span>
-                            <span class="tech-tag">.NET</span>
-                            <span class="tech-tag">MODBUS</span>
-                            <span class="tech-tag">Hardware Integration</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-header">
-                        <div class="project-duration">Ağustos 2014 - Devam Ediyor</div>
-                        <h3>Xerox Yazıcı Sayaç Takip Sistemi</h3>
-                    </div>
-                    <div class="project-body">
-                        <p>Şirketimiz bünyesinde yer alan xerox yazıcılardan günlük sayaç bilgilerini günlük olarak alan visual studio 2013 c# kullanılarak yapılan bir projedir.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">C#</span>
-                            <span class="tech-tag">Visual Studio</span>
-                            <span class="tech-tag">Hardware Integration</span>
-                            <span class="tech-tag">Data Collection</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+      <div class="experience-item reveal">
+        <div class="experience-dot"></div>
+        <div class="experience-content">
+          <div class="company-name">Kaplanlar Refrigeration INC</div>
+          <div class="job-title">ERP Specialist</div>
+          <div class="job-duration" data-start="2019-04" data-end="2020-01"></div>
+          <div class="job-loc">Bursa, Türkiye</div>
+          <div class="job-description" data-tr="Şirket web portalının IAS Canias ERP sistemiyle entegre çalışmasını sağlayan geliştirme süreçlerini yürüttüm." data-en="Led the development processes integrating the company web portal with the IAS Canias ERP system.">Şirket web portalının IAS Canias ERP sistemiyle entegre çalışmasını sağlayan geliştirme süreçlerini yürüttüm.</div>
+          <div class="project-tech"><span class="tech-tag">Python</span><span class="tech-tag">Django</span><span class="tech-tag">jQuery</span><span class="tech-tag">Ajax</span><span class="tech-tag">Canias ERP</span></div>
         </div>
-    </section>
+      </div>
 
-    <section id="certifications">
-        <div class="container">
-            <h2 class="section-title">Sertifikalar & Eğitimler</h2>
-            <div class="certifications-grid">
-                <div class="certification-card">
-                    <h4>Blazor, .NET Core Web API and Microsoft SQL full-stack app</h4>
-                    <p>Full-stack web uygulama geliştirme sertifikası</p>
-                </div>
-                <div class="certification-card">
-                    <h4>Python: Yapay Zeka ve Veri Bilimi için Python Programlama</h4>
-                    <p>Yapay zeka ve makine öğrenmesi uygulamaları</p>
-                </div>
-                <div class="certification-card">
-                    <h4>Social Media Bots with Python</h4>
-                    <p>Python ile sosyal medya botları geliştirme</p>
-                </div>
-                <div class="certification-card">
-                    <h4>Learn Advanced HTML5</h4>
-                    <p>İleri seviye HTML5 teknolojileri</p>
-                </div>
-                <div class="certification-card">
-                    <h4>ICSI | CNSS Certified Network Security Specialist</h4>
-                    <p>Ağ güvenliği uzmanı sertifikası</p>
-                </div>
-            </div>
+      <div class="experience-item reveal">
+        <div class="experience-dot"></div>
+        <div class="experience-content">
+          <div class="company-name">Burulaş Ulaşım</div>
+          <div class="job-title">Software Engineer</div>
+          <div class="job-duration" data-start="2015-11" data-end="2019-04"></div>
+          <div class="job-loc">Bursa, Türkiye</div>
+          <div class="job-description" data-tr="ERP projeleri, socket programlama, donanım programlama, veritabanı yönetimi ve geliştirme; mevcut projelerin iyileştirilmesi ve yeni projelerin hayata geçirilmesi." data-en="ERP projects, socket programming, hardware programming, database administration and development; improving existing systems and delivering new projects.">ERP projeleri, socket programlama, donanım programlama, veritabanı yönetimi ve geliştirme; mevcut projelerin iyileştirilmesi ve yeni projelerin hayata geçirilmesi.</div>
+          <div class="project-tech"><span class="tech-tag">C# .NET</span><span class="tech-tag">SQL Server</span><span class="tech-tag">Oracle</span><span class="tech-tag">Socket</span></div>
         </div>
-    </section>
+      </div>
 
-    <section id="about">
-        <div class="container">
-            <h2 class="section-title">Hakkımda</h2>
-            <div class="about-content">
-                <p>
-                    20+ yıllık yazılım geliştirme deneyimi olan senior bir yazılım geliştirici ve veritabanı uzmanıyım. 
-                    Python, C#, ve çeşitli modern teknolojilerde uzmanlaşmış olmakla birlikte, özellikle ERP sistemleri, 
-                    workflow yönetimi ve low-code platformları konularında derinlemesine bilgi sahibiyim.
-                </p>
-                
-                <div class="stats">
-                    <div class="stat-item">
-                        <span class="stat-number">20+</span>
-                        <span>Yıl Deneyim</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">50+</span>
-                        <span>Tamamlanan Proje</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">10+</span>
-                        <span>Şirket Deneyimi</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">5+</span>
-                        <span>Sertifika</span>
-                    </div>
-                </div>
-
-                <p>
-                    Kariyerim boyunca sağlık, enerji, üretim ve holding sektörlerinde çalışarak farklı iş domainlerinde 
-                    deneyim kazandım. Özellikle Yeşilova Holding'de yürüttüğüm Kuika low-code platformu projesi ile 
-                    şirketin dijital dönüşüm sürecinde aktif rol alıyorum.
-                </p>
-                
-                <p>
-                    <strong>"Oku, Yaz, Düşün, Düşle"</strong> mottosu ile sürekli öğrenme ve gelişim odaklı yaklaşımım, 
-                    yeni teknolojileri hızla öğrenmeme ve projelerime entegre etmeme yardımcı oluyor. Blog yazılarımda 
-                    hem teknik konuları hem de kişisel düşüncelerimi paylaşarak bilgi birikimini toplulukla buluşturmaya 
-                    çalışıyorum.
-                </p>
-            </div>
+      <div class="experience-item reveal">
+        <div class="experience-dot"></div>
+        <div class="experience-content">
+          <div class="company-name">Samet Kalıp ve Madeni Eşya San. ve Tic. A.Ş.</div>
+          <div class="job-title">Software Specialist</div>
+          <div class="job-duration" data-start="2013-05" data-end="2015-09"></div>
+          <div class="job-loc">İstanbul, Türkiye</div>
+          <div class="job-description" data-tr="Mevcut CRM ve ERP otomasyonlarının desteklenmesi ve geliştirilmesi." data-en="Supporting and improving existing CRM and ERP automations.">Mevcut CRM ve ERP otomasyonlarının desteklenmesi ve geliştirilmesi.</div>
+          <div class="project-tech"><span class="tech-tag">C#</span><span class="tech-tag">Java</span><span class="tech-tag">CRM</span><span class="tech-tag">ERP</span></div>
         </div>
-    </section>
+      </div>
 
-    <section id="contact">
-        <div class="container">
-            <h2 class="section-title">İletişim</h2>
-            <div class="contact-info">
-                <div class="contact-item">
-                    <div class="contact-icon">🌐</div>
-                    <h3>Website & Blog</h3>
-                    <p><a href="https://www.fatihsahinbas.com.tr/" target="_blank">www.fatihsahinbas.com.tr</a></p>
-                    <p>Düşünce Mezarlığı</p>
-                </div>
-                <div class="contact-item">
-                    <div class="contact-icon">💼</div>
-                    <h3>LinkedIn</h3>
-                    <p><a href="https://www.linkedin.com/in/fatihsahinbas/" target="_blank">linkedin.com/in/fatihsahinbas</a></p>
-                    <p>1,519 takipçi • 500+ bağlantı</p>
-                </div>
-                <div class="contact-item">
-                    <div class="contact-icon">📧</div>
-                    <h3>E-posta</h3>
-                    <p><a href="mailto:fatihsahinbas@gmail.com">fatihsahinbas@gmail.com</a></p>
-                    <p>İş fırsatları için</p>
-                </div>
-                <div class="contact-item">
-                    <div class="contact-icon">📍</div>
-                    <h3>Lokasyon</h3>
-                    <p>Bursa, Türkiye</p>
-                    <p>İngilizce (Native/Bilingual)</p>
-                </div>
-            </div>
+      <div class="experience-item reveal extra-exp">
+        <div class="experience-dot"></div>
+        <div class="experience-content">
+          <div class="company-name">Hedef Grup Yönetim</div>
+          <div class="job-title">Software Specialist</div>
+          <div class="job-duration" data-start="2012-08" data-end="2013-05"></div>
+          <div class="job-loc">İstanbul, Türkiye</div>
+          <div class="job-description" data-tr="Veritabanı ve ilgili sistemlerin etkin yönetimi; entegrasyon, geliştirme, analiz ve raporlama fonksiyonları. Veri Ambarı ve İş Zekası sistemlerine ilişkin süreçlerin geliştirilmesi ve desteklenmesi." data-en="Effective management of databases and related systems; integration, development, analysis and reporting functions. Development and support of Data Warehouse and Business Intelligence processes.">Veritabanı ve ilgili sistemlerin etkin yönetimi; entegrasyon, geliştirme, analiz ve raporlama fonksiyonları. Veri Ambarı ve İş Zekası sistemlerine ilişkin süreçlerin geliştirilmesi ve desteklenmesi.</div>
+          <div class="project-tech"><span class="tech-tag">C# .NET</span><span class="tech-tag">Data Warehouse</span><span class="tech-tag">BI</span></div>
         </div>
-    </section>
+      </div>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 Fatih Şahinbaş. Tüm hakları saklıdır.</p>
-            <p style="margin-top: 0.5rem; opacity: 0.8;">"Oku, Yaz, Düşün, Düşle"</p>
+      <div class="experience-item reveal extra-exp">
+        <div class="experience-dot"></div>
+        <div class="experience-content">
+          <div class="company-name">EGA Elektronik Güvenlik Altyapısı A.Ş.</div>
+          <div class="job-title">Software Specialist</div>
+          <div class="job-duration" data-start="2009-12" data-end="2012-07"></div>
+          <div class="job-loc">İstanbul, Türkiye</div>
+          <div class="job-description" data-tr="Kurum ve kuruluşlar için elektronik imza, mobil imza, ASP.NET C# ve Java tabanlı uygulama ve API yazılım tasarımı." data-en="Electronic signature, mobile signature, ASP.NET C# and Java based application and API software design for institutions.">Kurum ve kuruluşlar için elektronik imza, mobil imza, ASP.NET C# ve Java tabanlı uygulama ve API yazılım tasarımı.</div>
+          <div class="project-tech"><span class="tech-tag">ASP.NET</span><span class="tech-tag">C#</span><span class="tech-tag">Java</span><span class="tech-tag">e-İmza</span><span class="tech-tag">API</span></div>
         </div>
-    </footer>
+      </div>
 
-    <script>
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
+      <div class="experience-item reveal extra-exp">
+        <div class="experience-dot"></div>
+        <div class="experience-content">
+          <div class="company-name">Birim Bilgi Teknolojileri</div>
+          <div class="job-title" data-tr="Eğitmen" data-en="Trainer">Eğitmen</div>
+          <div class="job-duration" data-start="2006-07" data-end="2007-09"></div>
+          <div class="job-loc">Türkiye</div>
+          <div class="job-description" data-tr="Hastane otomasyon sistemleri kapsamında modül kurulum eğitimi ve saha desteği sağladım." data-en="Provided module installation training and field support for hospital automation systems.">Hastane otomasyon sistemleri kapsamında modül kurulum eğitimi ve saha desteği sağladım.</div>
+        </div>
+      </div>
 
-        // Add scroll effect to header
-        window.addEventListener('scroll', function() {
-            const header = document.querySelector('header');
-            if (window.scrollY > 100) {
-                header.style.background = 'rgba(255, 255, 255, 0.98)';
-            } else {
-                header.style.background = 'rgba(255, 255, 255, 0.95)';
-            }
-        });
+      <div class="experience-item reveal extra-exp">
+        <div class="experience-dot"></div>
+        <div class="experience-content">
+          <div class="company-name">Solvent Yazılım</div>
+          <div class="job-title" data-tr="Eğitmen" data-en="Trainer">Eğitmen</div>
+          <div class="job-duration" data-start="2006-01" data-end="2006-07"></div>
+          <div class="job-loc">Bursa, Türkiye</div>
+          <div class="job-description" data-tr="Samsun Devlet Hastanesi bilgisayar otomasyon sistemlerinden sorumluydum; proje destek uzmanı olarak kurulum sürecini yürüttüm." data-en="Responsible for Samsun State Hospital computer automation systems as a project support specialist, leading the rollout.">Samsun Devlet Hastanesi bilgisayar otomasyon sistemlerinden sorumluydum; proje destek uzmanı olarak kurulum sürecini yürüttüm.</div>
+        </div>
+      </div>
 
-        // Add intersection observer for animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
+      <div class="experience-item reveal extra-exp">
+        <div class="experience-dot"></div>
+        <div class="experience-content">
+          <div class="company-name">Eroğlu Software</div>
+          <div class="job-title">IT Developer</div>
+          <div class="job-duration" data-start="2000-01" data-end="2001-01"></div>
+          <div class="job-loc">Türkiye</div>
+          <div class="job-description" data-tr="Erzurum Süleyman Demirel Tıp Merkezi araştırma hastanesinde bilgisayar operatörü ve sistem sorumlusu olarak görev yaptım." data-en="Worked as computer operator and system manager at Erzurum Süleyman Demirel Medical Center research hospital.">Erzurum Süleyman Demirel Tıp Merkezi araştırma hastanesinde bilgisayar operatörü ve sistem sorumlusu olarak görev yaptım.</div>
+        </div>
+      </div>
 
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
+    </div>
+    <button class="icon-btn timeline-toggle" id="exp-toggle" type="button" data-tr="Önceki pozisyonları göster (5)" data-en="Show earlier positions (5)">Önceki pozisyonları göster (5)</button>
+  </div>
+</section>
 
-        // Observe all cards and sections
-        document.querySelectorAll('.experience-content, .project-card, .contact-item, .certification-card, .skills-category').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(30px)';
-            el.style.transition = 'all 0.6s ease';
-            observer.observe(el);
-        });
+<!-- ================= SKILLS ================= -->
+<section id="skills">
+  <div class="container">
+    <h2 class="section-title" data-tr="Teknik Yetenekler" data-en="Technical Skills">Teknik Yetenekler</h2>
+    <p class="section-sub" data-tr="Backend'den endüstriyel protokollere, ERP entegrasyonlarından yapay zekaya uzanan bir yığın." data-en="A stack spanning backend engineering, industrial protocols, ERP integration and applied AI.">Backend'den endüstriyel protokollere, ERP entegrasyonlarından yapay zekaya uzanan bir yığın.</p>
+    <div class="skills-container">
 
-        // Counter animation for stats
-        function animateCounters() {
-            const counters = document.querySelectorAll('.stat-number');
-            
-            counters.forEach(counter => {
-                const target = parseInt(counter.textContent.replace('+', ''));
-                const increment = target / 50;
-                let current = 0;
-                
-                const timer = setInterval(() => {
-                    current += increment;
-                    if (current >= target) {
-                        counter.textContent = target + '+';
-                        clearInterval(timer);
-                    } else {
-                        counter.textContent = Math.floor(current) + '+';
-                    }
-                }, 40);
-            });
-        }
+      <div class="skills-category reveal">
+        <h3 data-tr="🧩 Diller &amp; Backend" data-en="🧩 Languages &amp; Backend">🧩 Diller &amp; Backend</h3>
+        <div class="skill-list">
+          <span class="skill-tag">Python</span><span class="skill-tag">C#</span><span class="skill-tag">.NET 8/9</span>
+          <span class="skill-tag">Java</span><span class="skill-tag">Rust</span><span class="skill-tag">FastAPI</span>
+          <span class="skill-tag">Django</span><span class="skill-tag">Flask</span><span class="skill-tag">ASP.NET Core</span>
+        </div>
+      </div>
 
-        // Start counter animation when stats section is visible
-        const statsObserver = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    animateCounters();
-                    statsObserver.unobserve(entry.target);
-                }
-            });
-        });
+      <div class="skills-category reveal">
+        <h3 data-tr="💾 Veritabanı &amp; ERP" data-en="💾 Database &amp; ERP">💾 Veritabanı &amp; ERP</h3>
+        <div class="skill-list">
+          <span class="skill-tag">Oracle</span><span class="skill-tag">PL/SQL</span><span class="skill-tag">SQL Server</span>
+          <span class="skill-tag">PostgreSQL</span><span class="skill-tag">SQLite</span><span class="skill-tag">MySQL</span>
+          <span class="skill-tag">IFS Applications</span><span class="skill-tag">eBA Workflow</span>
+        </div>
+      </div>
 
-        const statsSection = document.querySelector('.stats');
-        if (statsSection) {
-            statsObserver.observe(statsSection);
-        }
+      <div class="skills-category reveal">
+        <h3 data-tr="🤖 Yapay Zeka &amp; Veri" data-en="🤖 AI &amp; Data">🤖 Yapay Zeka &amp; Veri</h3>
+        <div class="skill-list">
+          <span class="skill-tag">LangChain</span><span class="skill-tag">OpenAI GPT-4</span><span class="skill-tag">TimesFM</span>
+          <span class="skill-tag">Keras</span><span class="skill-tag">VGG16</span>
+          <span class="skill-tag" data-tr="Zaman Serisi" data-en="Time Series">Zaman Serisi</span>
+          <span class="skill-tag" data-tr="Veri Analizi" data-en="Data Analysis">Veri Analizi</span>
+        </div>
+      </div>
 
-        // Typewriter Effect
-        function typeWriter() {
-            const roles = [
-                "Python Developer",
-                "C# Architect", 
-                "Database Specialist",
-                "ERP Integration Expert",
-                "Kuika Platform Developer",
-                "AI & ML Enthusiast"
-            ];
-            
-            let roleIndex = 0;
-            let charIndex = 0;
-            let isDeleting = false;
-            const typewriterElement = document.getElementById('typewriter');
-            
-            function type() {
-                const currentRole = roles[roleIndex];
-                
-                if (isDeleting) {
-                    typewriterElement.textContent = currentRole.substring(0, charIndex - 1);
-                    charIndex--;
-                } else {
-                    typewriterElement.textContent = currentRole.substring(0, charIndex + 1);
-                    charIndex++;
-                }
-                
-                let typeSpeed = isDeleting ? 50 : 100;
-                
-                if (!isDeleting && charIndex === currentRole.length) {
-                    // Pause at end
-                    typeSpeed = 2000;
-                    isDeleting = true;
-                } else if (isDeleting && charIndex === 0) {
-                    isDeleting = false;
-                    roleIndex = (roleIndex + 1) % roles.length;
-                    typeSpeed = 500;
-                }
-                
-                setTimeout(type, typeSpeed);
-            }
-            
-            // Start typing effect after a delay
-            setTimeout(type, 1500);
-        }
-        
-        // Initialize typewriter effect
-        typeWriter();
-    </script>
+      <div class="skills-category reveal">
+        <h3 data-tr="⚙️ Otomasyon &amp; RPA" data-en="⚙️ Automation &amp; RPA">⚙️ Otomasyon &amp; RPA</h3>
+        <div class="skill-list">
+          <span class="skill-tag">Playwright</span><span class="skill-tag">Web Scraping</span><span class="skill-tag">Apify</span>
+          <span class="skill-tag">PDF Parsing</span><span class="skill-tag">REST API</span><span class="skill-tag">Windows Services</span>
+          <span class="skill-tag">GİB e-Fatura</span>
+        </div>
+      </div>
+
+      <div class="skills-category reveal">
+        <h3 data-tr="🏭 Endüstriyel &amp; Ağ" data-en="🏭 Industrial &amp; Network">🏭 Endüstriyel &amp; Ağ</h3>
+        <div class="skill-list">
+          <span class="skill-tag">MODBUS</span><span class="skill-tag">SCADA / TIA Portal</span>
+          <span class="skill-tag" data-tr="Socket Programlama" data-en="Socket Programming">Socket Programlama</span>
+          <span class="skill-tag">Dahua DSS</span><span class="skill-tag">Aruba / ProCurve</span><span class="skill-tag">SSH</span>
+        </div>
+      </div>
+
+      <div class="skills-category reveal">
+        <h3 data-tr="🏗️ Platform &amp; Mimari" data-en="🏗️ Platform &amp; Architecture">🏗️ Platform &amp; Mimari</h3>
+        <div class="skill-list">
+          <span class="skill-tag">Kuika Low-Code</span><span class="skill-tag">HTMX</span><span class="skill-tag">Blazor</span>
+          <span class="skill-tag">Linux</span><span class="skill-tag">JWT / Auth</span>
+          <span class="skill-tag" data-tr="Sistem Mimarisi" data-en="System Architecture">Sistem Mimarisi</span>
+          <span class="skill-tag" data-tr="Domain Modelleme" data-en="Domain Modeling">Domain Modelleme</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= PROJECTS ================= -->
+<section id="projects">
+  <div class="container">
+    <h2 class="section-title" data-tr="Projeler" data-en="Projects">Projeler</h2>
+    <p class="section-sub" data-tr="Kurumsal entegrasyonlardan açık kaynak kütüphanelere. Teknolojiye göre filtreleyin." data-en="From enterprise integrations to open-source libraries. Filter by technology.">Kurumsal entegrasyonlardan açık kaynak kütüphanelere. Teknolojiye göre filtreleyin.</p>
+
+    <div class="filter-bar" id="filter-bar"></div>
+    <p class="filter-count" id="filter-count"></p>
+
+    <div class="projects-grid" id="projects-grid">
+
+      <article class="project-card reveal" data-tags="rust,open-source">
+        <div class="project-header">
+          <div class="project-duration"><span data-start="2026-02" data-end="" data-range-only="1"></span><span class="badge-live" data-tr="Aktif" data-en="Active">Aktif</span></div>
+          <h3>HybridZ</h3>
+        </div>
+        <div class="project-body">
+          <p data-tr="Rust ile yazılmış içerik-adaptif hibrit sıkıştırma kütüphanesi. Veri tipini (metin, sayısal, tekrarlı, executable, binary, sabit kayıt) önce analiz eder, sonra ona uygun transform pipeline + entropy coder seçer. Klasik sıkıştırıcıların aksine tek bir stratejiye sabitlenmez; farklı veri tiplerinde farklı referans sıkıştırıcıları geçmeyi hedefler." data-en="A content-adaptive hybrid compression library written in Rust. It first analyses the data type (text, numeric, repetitive, executable, binary, fixed-record) and then selects a matching transform pipeline plus entropy coder. Unlike classic compressors it is not locked to a single strategy; it aims to beat different reference compressors on different data types.">Rust ile yazılmış içerik-adaptif hibrit sıkıştırma kütüphanesi. Veri tipini (metin, sayısal, tekrarlı, executable, binary, sabit kayıt) önce analiz eder, sonra ona uygun transform pipeline + entropy coder seçer. Klasik sıkıştırıcıların aksine tek bir stratejiye sabitlenmez; farklı veri tiplerinde farklı referans sıkıştırıcıları geçmeyi hedefler.</p>
+          <div class="project-tech"><span class="tech-tag">Rust</span><span class="tech-tag">Entropy Coding</span><span class="tech-tag">Benchmarking</span></div>
+        </div>
+      </article>
+
+      <article class="project-card reveal" data-tags="python,integration">
+        <div class="project-header">
+          <div class="project-duration"><span data-start="2026-01" data-end="" data-range-only="1"></span><span class="badge-live" data-tr="Aktif" data-en="Active">Aktif</span></div>
+          <h3 data-tr="Dahua DSS Pro Erişim Kontrol Otomasyonu" data-en="Dahua DSS Pro Access Control Automation">Dahua DSS Pro Erişim Kontrol Otomasyonu</h3>
+        </div>
+        <div class="project-body">
+          <p data-tr="Dahua DSS Pro erişim kontrol sisteminin dokümante edilmemiş dahili REST API'sini network analizi ile tersine mühendislikle çözdüm. Personel geçiş verilerinin otomatik toplanmasını ve kurumsal sistemlerle entegrasyonunu sağladım; manuel veri aktarım ihtiyacını ortadan kaldırdım." data-en="Reverse-engineered the undocumented internal REST API of the Dahua DSS Pro access control system through network analysis. Automated collection of personnel access records and integrated them with corporate systems, eliminating manual data transfer.">Dahua DSS Pro erişim kontrol sisteminin dokümante edilmemiş dahili REST API'sini network analizi ile tersine mühendislikle çözdüm. Personel geçiş verilerinin otomatik toplanmasını ve kurumsal sistemlerle entegrasyonunu sağladım; manuel veri aktarım ihtiyacını ortadan kaldırdım.</p>
+          <div class="project-tech"><span class="tech-tag">Python</span><span class="tech-tag">REST API</span><span class="tech-tag">Reverse Engineering</span><span class="tech-tag">Oracle</span></div>
+          <div class="project-org">Yeşilova Holding</div>
+        </div>
+      </article>
+
+      <article class="project-card reveal" data-tags="python,oracle,automation">
+        <div class="project-header">
+          <div class="project-duration"><span data-start="2026-01" data-end="" data-range-only="1"></span><span class="badge-live" data-tr="Aktif" data-en="Active">Aktif</span></div>
+          <h3>NSBLazerData — <span data-tr="PDF'ten Oracle'a CNC Lazer Kesim Veri Pipeline'ı" data-en="PDF-to-Oracle CNC Laser Cutting Data Pipeline">PDF'ten Oracle'a CNC Lazer Kesim Veri Pipeline'ı</span></h3>
+        </div>
+        <div class="project-body">
+          <p data-tr="CNC lazer kesim üretim verilerini PDF dokümanlardan otomatik ayrıştırıp Oracle veritabanına aktaran veri pipeline'ı geliştirdim. Manuel veri girişini ortadan kaldırarak üretim verilerinin raporlanabilir hale gelmesini sağladım." data-en="Built a data pipeline that automatically parses CNC laser cutting production data from PDF documents into an Oracle database, removing manual data entry and making production data reportable.">CNC lazer kesim üretim verilerini PDF dokümanlardan otomatik ayrıştırıp Oracle veritabanına aktaran veri pipeline'ı geliştirdim. Manuel veri girişini ortadan kaldırarak üretim verilerinin raporlanabilir hale gelmesini sağladım.</p>
+          <div class="project-tech"><span class="tech-tag">Python</span><span class="tech-tag">PDF Parsing</span><span class="tech-tag">Oracle</span><span class="tech-tag">RPA</span></div>
+          <div class="project-org">Yeşilova Holding</div>
+        </div>
+      </article>
+
+      <article class="project-card reveal" data-tags="python,fastapi,automation">
+        <div class="project-header">
+          <div class="project-duration"><span data-start="2026-01" data-end="" data-range-only="1"></span><span class="badge-live" data-tr="Aktif" data-en="Active">Aktif</span></div>
+          <h3 data-tr="Windows Task Scheduler Merkezi İzleme Dashboard'u" data-en="Centralized Windows Task Scheduler Monitoring Dashboard">Windows Task Scheduler Merkezi İzleme Dashboard'u</h3>
+        </div>
+        <div class="project-body">
+          <p data-tr="Holding sunucularındaki zamanlanmış görevleri agent kurulumu gerektirmeden merkezi olarak izleyen web dashboard'u geliştirdim. schtasks.exe tabanlı agentless pull modeli ile görev durumu, son çalışma sonucu ve hata takibi tek ekranda toplanıyor. FastAPI + HTMX + SQLite ile hafif ve bakımı kolay bir mimari kurdum." data-en="Built a web dashboard that centrally monitors scheduled tasks across holding servers without requiring any agent installation. An agentless pull model based on schtasks.exe brings task state, last run result and error tracking into a single screen, on a lightweight FastAPI + HTMX + SQLite architecture.">Holding sunucularındaki zamanlanmış görevleri agent kurulumu gerektirmeden merkezi olarak izleyen web dashboard'u geliştirdim. schtasks.exe tabanlı agentless pull modeli ile görev durumu, son çalışma sonucu ve hata takibi tek ekranda toplanıyor. FastAPI + HTMX + SQLite ile hafif ve bakımı kolay bir mimari kurdum.</p>
+          <div class="project-tech"><span class="tech-tag">Python</span><span class="tech-tag">FastAPI</span><span class="tech-tag">HTMX</span><span class="tech-tag">SQLite</span></div>
+          <div class="project-org">Yeşilova Holding</div>
+        </div>
+      </article>
+
+      <article class="project-card reveal" data-tags="python,oracle,open-source">
+        <div class="project-header">
+          <div class="project-duration"><span data-start="2026-01" data-end="" data-range-only="1"></span><span class="badge-live" data-tr="PyPI" data-en="PyPI">PyPI</span></div>
+          <h3>oracle-pool-async — <span data-tr="Async Oracle Bağlantı Havuzu" data-en="Async Oracle Connection Pool">Async Oracle Bağlantı Havuzu</span></h3>
+        </div>
+        <div class="project-body">
+          <p data-tr="Async-first Oracle bağlantı havuzu yönetimi için açık kaynak Python paketini PyPI'da yayınladım. python-oracledb thin mode üzerine kurulu; async/await desteğiyle FastAPI gibi modern framework'lerle doğal entegrasyon sağlıyor. Planlanan açık kaynak paket ailesinin (pyconfig-manager-v2, OracleQueryBuilder) ilk üyesi." data-en="Published an open-source Python package on PyPI for async-first Oracle connection pool management. Built on python-oracledb thin mode, its async/await support integrates naturally with modern frameworks such as FastAPI. It is the first member of a planned open-source package family (pyconfig-manager-v2, OracleQueryBuilder).">Async-first Oracle bağlantı havuzu yönetimi için açık kaynak Python paketini PyPI'da yayınladım. python-oracledb thin mode üzerine kurulu; async/await desteğiyle FastAPI gibi modern framework'lerle doğal entegrasyon sağlıyor. Planlanan açık kaynak paket ailesinin (pyconfig-manager-v2, OracleQueryBuilder) ilk üyesi.</p>
+          <div class="project-tech"><span class="tech-tag">Python</span><span class="tech-tag">Async</span><span class="tech-tag">Oracle</span><span class="tech-tag">PyPI</span></div>
+        </div>
+      </article>
+
+      <article class="project-card reveal" data-tags="python,automation">
+        <div class="project-header">
+          <div class="project-duration"><span data-start="2025-12" data-end="" data-range-only="1"></span><span class="badge-live" data-tr="Aktif" data-en="Active">Aktif</span></div>
+          <h3>Apify Store — <span data-tr="Türk E-Ticaret Scraper Aktörleri" data-en="Turkish E-Commerce Scraper Actors">Türk E-Ticaret Scraper Aktörleri</span></h3>
+        </div>
+        <div class="project-body">
+          <p data-tr="Türk e-ticaret platformlarına odaklanan web scraping aktörlerini Apify Store'da yayınladım ve Pay-Per-Event modeliyle monetize ettim." data-en="Published web scraping actors targeting Turkish e-commerce platforms on the Apify Store, monetized through the Pay-Per-Event model.">Türk e-ticaret platformlarına odaklanan web scraping aktörlerini Apify Store'da yayınladım ve Pay-Per-Event modeliyle monetize ettim.</p>
+          <div class="project-tech"><span class="tech-tag">Python</span><span class="tech-tag">Web Scraping</span><span class="tech-tag">Apify</span><span class="tech-tag">E-Commerce</span></div>
+        </div>
+      </article>
+
+      <article class="project-card reveal" data-tags="python,fastapi">
+        <div class="project-header">
+          <div class="project-duration"><span data-start="2025-12" data-end="" data-range-only="1"></span><span class="badge-live" data-tr="Aktif" data-en="Active">Aktif</span></div>
+          <h3>PassGuard — <span data-tr="Şifreli Parola Yöneticisi (PWA)" data-en="Encrypted Password Manager (PWA)">Şifreli Parola Yöneticisi (PWA)</span></h3>
+        </div>
+        <div class="project-body">
+          <p data-tr="AES (Fernet) şifreleme ve Argon2 hash ile güvenli parola yönetimi uygulaması geliştirdim. FastAPI + SQLite altyapısı, PWA olarak mobil kullanım desteği." data-en="Built a secure password management application using AES (Fernet) encryption and Argon2 hashing, on a FastAPI + SQLite stack with PWA support for mobile use.">AES (Fernet) şifreleme ve Argon2 hash ile güvenli parola yönetimi uygulaması geliştirdim. FastAPI + SQLite altyapısı, PWA olarak mobil kullanım desteği.</p>
+          <div class="project-tech"><span class="tech-tag">Python</span><span class="tech-tag">FastAPI</span><span class="tech-tag">SQLite</span><span class="tech-tag">PWA</span><span class="tech-tag">Argon2</span></div>
+        </div>
+      </article>
+
+      <article class="project-card reveal" data-tags="python,fastapi,ai,oracle">
+        <div class="project-header">
+          <div class="project-duration"><span data-start="2025-12" data-end="" data-range-only="1"></span><span class="badge-live" data-tr="Aktif" data-en="Active">Aktif</span></div>
+          <h3>YesilovaFM — <span data-tr="TimesFM Tabanlı Zaman Serisi Tahminleme API'si" data-en="TimesFM-Based Time Series Forecasting API">TimesFM Tabanlı Zaman Serisi Tahminleme API'si</span></h3>
+        </div>
+        <div class="project-body">
+          <p data-tr="Google TimesFM temel modelini kullanarak Oracle/IFS ERP verilerinden üretim ve enerji tüketimi tahmini yapan FastAPI servisi geliştirdim. ERP verisini model girdisine dönüştüren pipeline'ı ve tahmin sonuçlarını raporlayan API katmanını kurdum." data-en="Developed a FastAPI service that forecasts production and energy consumption from Oracle/IFS ERP data using Google's TimesFM foundation model, including the pipeline that converts ERP data into model input and the API layer that reports forecast results.">Google TimesFM temel modelini kullanarak Oracle/IFS ERP verilerinden üretim ve enerji tüketimi tahmini yapan FastAPI servisi geliştirdim. ERP verisini model girdisine dönüştüren pipeline'ı ve tahmin sonuçlarını raporlayan API katmanını kurdum.</p>
+          <div class="project-tech"><span class="tech-tag">Python</span><span class="tech-tag">FastAPI</span><span class="tech-tag">TimesFM</span><span class="tech-tag">Oracle</span><span class="tech-tag">IFS ERP</span></div>
+          <div class="project-org">Yeşilova Holding</div>
+        </div>
+      </article>
+
+      <article class="project-card reveal" data-tags="python,fastapi,csharp,integration">
+        <div class="project-header">
+          <div class="project-duration"><span data-start="2025-12" data-end="" data-range-only="1"></span><span class="badge-live" data-tr="Aktif" data-en="Active">Aktif</span></div>
+          <h3 data-tr="Çoklu Şirket e-Arşiv Fatura Entegrasyon Sistemi" data-en="Multi-Company e-Archive Invoice Integration System">Çoklu Şirket e-Arşiv Fatura Entegrasyon Sistemi</h3>
+        </div>
+        <div class="project-body">
+          <p data-tr="Holding bünyesindeki 10+ iştirakin e-arşiv fatura işlemlerini tek merkezden yöneten REST API wrapper'ları geliştirdim. Python/FastAPI ve C#/.NET olmak üzere iki ayrı implementasyon; JWT authentication ve şirket bazlı credential mapping ile her şirketin GİB portal hesapları merkezi sistemde yönetiliyor. Fatura oluşturma, onaylama, silme ve raporlama tek API'den sunuluyor." data-en="Built REST API wrappers that manage e-archive invoice operations for 10+ group companies from a single hub. Two separate implementations — Python/FastAPI and C#/.NET — with JWT authentication and per-company credential mapping, so each company's GİB portal accounts are managed centrally. Invoice creation, approval, deletion and reporting are served from one API.">Holding bünyesindeki 10+ iştirakin e-arşiv fatura işlemlerini tek merkezden yöneten REST API wrapper'ları geliştirdim. Python/FastAPI ve C#/.NET olmak üzere iki ayrı implementasyon; JWT authentication ve şirket bazlı credential mapping ile her şirketin GİB portal hesapları merkezi sistemde yönetiliyor. Fatura oluşturma, onaylama, silme ve raporlama tek API'den sunuluyor.</p>
+          <div class="project-tech"><span class="tech-tag">Python</span><span class="tech-tag">FastAPI</span><span class="tech-tag">C# .NET</span><span class="tech-tag">JWT</span><span class="tech-tag">GİB</span></div>
+          <div class="project-org">Yeşilova Holding</div>
+        </div>
+      </article>
+
+      <article class="project-card reveal" data-tags="python,ai">
+        <div class="project-header">
+          <div class="project-duration"><span data-start="2025-10" data-end="2025-11" data-range-only="1"></span></div>
+          <h3 data-tr="Yapay Zeka Destekli CV Tarama Platformu" data-en="AI-Powered CV Screening Platform">Yapay Zeka Destekli CV Tarama Platformu</h3>
+        </div>
+        <div class="project-body">
+          <p data-tr="İK süreçlerinde aday değerlendirmeyi otomatikleştiren, çok kiracılı (multi-tenant) CV tarama platformu. GPT-4 ile CV'ler pozisyon kriterlerine göre puanlanıyor ve sıralanıyor." data-en="A multi-tenant CV screening platform that automates candidate evaluation in HR processes, scoring and ranking CVs against position criteria with GPT-4.">İK süreçlerinde aday değerlendirmeyi otomatikleştiren, çok kiracılı (multi-tenant) CV tarama platformu. GPT-4 ile CV'ler pozisyon kriterlerine göre puanlanıyor ve sıralanıyor.</p>
+          <div class="project-tech"><span class="tech-tag">Python</span><span class="tech-tag">Flask</span><span class="tech-tag">OpenAI GPT-4</span><span class="tech-tag">SQLite</span></div>
+          <div class="project-org">Yeşilova Holding</div>
+        </div>
+      </article>
+
+      <article class="project-card reveal" data-tags="python,csharp,oracle,automation">
+        <div class="project-header">
+          <div class="project-duration"><span data-start="2025-09" data-end="2025-10" data-range-only="1"></span></div>
+          <h3 data-tr="Metal.com Alüminyum Fiyat Verisi Çekme" data-en="Metal.com Aluminium Price Data Extraction">Metal.com Alüminyum Fiyat Verisi Çekme</h3>
+        </div>
+        <div class="project-body">
+          <p data-tr="SMM alüminyum ve alümina fiyatlarının API üzerinden otomatik çekilip Oracle veritabanına aktarıldığı, Python ve C# ile geliştirilen veri toplama projesi." data-en="A data collection project in Python and C# that automatically pulls SMM aluminium and alumina prices via API into an Oracle database.">SMM alüminyum ve alümina fiyatlarının API üzerinden otomatik çekilip Oracle veritabanına aktarıldığı, Python ve C# ile geliştirilen veri toplama projesi.</p>
+          <div class="project-tech"><span class="tech-tag">Python</span><span class="tech-tag">C#</span><span class="tech-tag">Oracle</span><span class="tech-tag">REST API</span></div>
+          <div class="project-org">Yeşilova Holding</div>
+        </div>
+      </article>
+
+      <article class="project-card reveal" data-tags="python,csharp,automation">
+        <div class="project-header">
+          <div class="project-duration"><span data-start="2025-08" data-end="2025-08" data-range-only="1"></span></div>
+          <h3>Job Orchestration Platform</h3>
+        </div>
+        <div class="project-body">
+          <p data-tr="Python ve .NET tabanlı heterojen uygulama portföyünü merkezi yönetim altına alan Windows Service. Uygulamaların başlatılması, izlenmesi ve hata durumlarının raporlanması tek noktadan yürütülüyor." data-en="A Windows Service that brings a heterogeneous portfolio of Python and .NET applications under central management — starting, monitoring and reporting failures from a single point.">Python ve .NET tabanlı heterojen uygulama portföyünü merkezi yönetim altına alan Windows Service. Uygulamaların başlatılması, izlenmesi ve hata durumlarının raporlanması tek noktadan yürütülüyor.</p>
+          <div class="project-tech"><span class="tech-tag">C# .NET 8</span><span class="tech-tag">Python</span><span class="tech-tag">Windows Service</span></div>
+          <div class="project-org">Yeşilova Holding</div>
+        </div>
+      </article>
+
+      <article class="project-card reveal" data-tags="python,automation">
+        <div class="project-header">
+          <div class="project-duration"><span data-start="2025-06" data-end="2025-06" data-range-only="1"></span></div>
+          <h3>Linux Script Runner — <span data-tr="SSH Script Yönetim Platformu" data-en="SSH Script Management Platform">SSH Script Yönetim Platformu</span></h3>
+        </div>
+        <div class="project-body">
+          <p data-tr="Uzak Linux sunucularda script'lerin web arayüzünden güvenli şekilde çalıştırılmasını ve çıktılarının takibini sağlayan yönetim platformu." data-en="A management platform that securely runs scripts on remote Linux servers from a web interface and tracks their output.">Uzak Linux sunucularda script'lerin web arayüzünden güvenli şekilde çalıştırılmasını ve çıktılarının takibini sağlayan yönetim platformu.</p>
+          <div class="project-tech"><span class="tech-tag">Python</span><span class="tech-tag">Flask</span><span class="tech-tag">SSH</span><span class="tech-tag">Linux</span></div>
+          <div class="project-org">Yeşilova Holding</div>
+        </div>
+      </article>
+
+      <article class="project-card reveal" data-tags="lowcode,oracle,integration">
+        <div class="project-header">
+          <div class="project-duration"><span data-start="2024-02" data-end="" data-range-only="1"></span><span class="badge-live" data-tr="Aktif" data-en="Active">Aktif</span></div>
+          <h3 data-tr="Kuika Platformu ile Süreç Dönüşüm Projesi" data-en="Process Transformation with the Kuika Platform">Kuika Platformu ile Süreç Dönüşüm Projesi</h3>
+        </div>
+        <div class="project-body">
+          <p data-tr="Kuika low-code platformunun kurulumunu yapıp Linux ortamında çalışır hale getirdik ve sistem testlerini tamamladık. Mevcut eBA iş akışı süreçlerinin Kuika'ya taşınmasını ekip olarak sürdürüyoruz; süreç modelleme, entegrasyon ve bileşen dönüşümleri bu kapsamda yürütülüyor." data-en="We installed the Kuika low-code platform, brought it up on Linux and completed system testing. As a team we are migrating existing eBA workflow processes to Kuika, covering process modelling, integration and component conversion.">Kuika low-code platformunun kurulumunu yapıp Linux ortamında çalışır hale getirdik ve sistem testlerini tamamladık. Mevcut eBA iş akışı süreçlerinin Kuika'ya taşınmasını ekip olarak sürdürüyoruz; süreç modelleme, entegrasyon ve bileşen dönüşümleri bu kapsamda yürütülüyor.</p>
+          <div class="project-tech"><span class="tech-tag">Kuika</span><span class="tech-tag">Low-Code</span><span class="tech-tag">Linux</span><span class="tech-tag">Oracle</span></div>
+          <div class="project-org">Yeşilova Holding</div>
+        </div>
+      </article>
+
+      <article class="project-card reveal" data-tags="python,csharp,oracle,integration">
+        <div class="project-header">
+          <div class="project-duration"><span data-start="2023-10" data-end="2023-12" data-range-only="1"></span></div>
+          <h3 data-tr="Görev ve Seyahat Formu" data-en="Assignment &amp; Travel Form">Görev ve Seyahat Formu</h3>
+        </div>
+        <div class="project-body">
+          <p data-tr="Seyahate ve dış/iç göreve giden personelin mali ve diğer bilgilerinin süreç tasarımıyla birlikte yönetildiği kurumsal form projesi." data-en="A corporate form project managing the financial and other details of personnel on domestic and international assignments, together with its process design.">Seyahate ve dış/iç göreve giden personelin mali ve diğer bilgilerinin süreç tasarımıyla birlikte yönetildiği kurumsal form projesi.</p>
+          <div class="project-tech"><span class="tech-tag">Django</span><span class="tech-tag">eBA</span><span class="tech-tag">C#</span><span class="tech-tag">Oracle</span></div>
+          <div class="project-org">Yeşilova Holding</div>
+        </div>
+      </article>
+
+      <article class="project-card reveal" data-tags="python,oracle,integration">
+        <div class="project-header">
+          <div class="project-duration"><span data-start="2022-02" data-end="" data-range-only="1"></span><span class="badge-live" data-tr="Aktif" data-en="Active">Aktif</span></div>
+          <h3 data-tr="Fikir Yönetim Sistemi" data-en="Idea Management System">Fikir Yönetim Sistemi</h3>
+        </div>
+        <div class="project-body">
+          <p data-tr="Python ve Django ile geliştirilen kurumsal fikir yönetim uygulaması. Kullanıcı kimliğiyle giriş yapıp fikrini girdikten sonra, eBA web servisleri ve Oracle veritabanı üzerinden eBA tarafında yeni bir akış süreci başlatılıyor; süreç 4 ana adım boyunca ilerliyor." data-en="A corporate idea management application built with Python and Django. After a user signs in and submits an idea, a new workflow is started on the eBA side through eBA web services and the Oracle database, progressing through four main stages.">Python ve Django ile geliştirilen kurumsal fikir yönetim uygulaması. Kullanıcı kimliğiyle giriş yapıp fikrini girdikten sonra, eBA web servisleri ve Oracle veritabanı üzerinden eBA tarafında yeni bir akış süreci başlatılıyor; süreç 4 ana adım boyunca ilerliyor.</p>
+          <div class="project-tech"><span class="tech-tag">Python</span><span class="tech-tag">Django</span><span class="tech-tag">Oracle</span><span class="tech-tag">Web Services</span></div>
+          <div class="project-org">Yeşilova Holding</div>
+        </div>
+      </article>
+
+      <article class="project-card reveal" data-tags="python,ai">
+        <div class="project-header">
+          <div class="project-duration"><span data-start="2022-01" data-end="2022-03" data-range-only="1"></span></div>
+          <h3>Image Similarity Search</h3>
+        </div>
+        <div class="project-body">
+          <p data-tr="Keras ve Flask ile geliştirilen görüntü tabanlı arama motoru. Veritabanındaki her görüntüden derin özellik çıkarılıyor; özellik vektörü, ImageNet ağırlıklarına sahip VGG16 modelinin 4096 boyutlu fc6 aktivasyonu. GPU gerektirmiyor." data-en="An image-based search engine built with Keras and Flask. A deep feature is extracted from every database image — a 4096-dimensional fc6 activation from a VGG16 model with ImageNet pretrained weights. No GPU required.">Keras ve Flask ile geliştirilen görüntü tabanlı arama motoru. Veritabanındaki her görüntüden derin özellik çıkarılıyor; özellik vektörü, ImageNet ağırlıklarına sahip VGG16 modelinin 4096 boyutlu fc6 aktivasyonu. GPU gerektirmiyor.</p>
+          <div class="project-tech"><span class="tech-tag">Python</span><span class="tech-tag">Keras</span><span class="tech-tag">Flask</span><span class="tech-tag">VGG16</span><span class="tech-tag">Deep Learning</span></div>
+        </div>
+      </article>
+
+      <article class="project-card reveal" data-tags="csharp,industrial">
+        <div class="project-header">
+          <div class="project-duration"><span data-start="2020-06" data-end="2020-08" data-range-only="1"></span></div>
+          <h3 data-tr="Günlük Enerji Üretim Projesi" data-en="Daily Energy Production Project">Günlük Enerji Üretim Projesi</h3>
+        </div>
+        <div class="project-body">
+          <p data-tr="SCADA TIA Portal'dan veritabanına aktarılan günlük tüketim değerlerinin saatlik ve matematiksel olarak işlendiği, raporlanıp mail ile gönderildiği WinForms projesi." data-en="A WinForms project that processes daily consumption values transferred from SCADA TIA Portal into the database on an hourly and mathematical basis, then reports and emails the results.">SCADA TIA Portal'dan veritabanına aktarılan günlük tüketim değerlerinin saatlik ve matematiksel olarak işlendiği, raporlanıp mail ile gönderildiği WinForms projesi.</p>
+          <div class="project-tech"><span class="tech-tag">C#</span><span class="tech-tag">WinForms</span><span class="tech-tag">SCADA</span><span class="tech-tag">TIA Portal</span></div>
+          <div class="project-org">MNK Enerji</div>
+        </div>
+      </article>
+
+      <article class="project-card reveal" data-tags="csharp">
+        <div class="project-header">
+          <div class="project-duration"><span data-start="2020-06" data-end="2020-08" data-range-only="1"></span></div>
+          <h3 data-tr="İmalat Takip" data-en="Manufacturing Tracking">İmalat Takip</h3>
+        </div>
+        <div class="project-body">
+          <p data-tr="Proje bilgilerinin, değerlerinin ve planlamalarının tutulduğu; işçilerin günlük çalışma raporlarının kaydedildiği, raporlandığı ve çeşitli matematiksel işlemlerle hesaplandığı WinForms uygulaması." data-en="A WinForms application holding project information, values and planning data, where workers' daily work reports are recorded, reported and computed through various calculations.">Proje bilgilerinin, değerlerinin ve planlamalarının tutulduğu; işçilerin günlük çalışma raporlarının kaydedildiği, raporlandığı ve çeşitli matematiksel işlemlerle hesaplandığı WinForms uygulaması.</p>
+          <div class="project-tech"><span class="tech-tag">C#</span><span class="tech-tag">WinForms</span><span class="tech-tag">MSSQL</span></div>
+          <div class="project-org">MNK Enerji</div>
+        </div>
+      </article>
+
+      <article class="project-card reveal" data-tags="csharp,industrial">
+        <div class="project-header">
+          <div class="project-duration"><span data-start="2015-05" data-end="" data-range-only="1"></span><span class="badge-live" data-tr="Aktif" data-en="Active">Aktif</span></div>
+          <h3 data-tr="Kalite Yönetim Sistemleri Test Makineleri MODBUS Uygulaması" data-en="Quality Management Test Machines MODBUS Application">Kalite Yönetim Sistemleri Test Makineleri MODBUS Uygulaması</h3>
+        </div>
+        <div class="project-body">
+          <p data-tr="Kalite biriminin MODBUS protokolüyle veri alıp gönderen cihazlarından gerekli verileri toplayan, cihazları tanımlayan ve .NET ortamında servis olarak çalışan uygulama. Yarım saatlik timer ile çalışıp istenen verileri veritabanına kaydediyor." data-en="An application that collects the required data from the quality department's MODBUS-based devices, defines those devices and runs as a .NET service. Driven by a half-hourly timer, it writes the requested data into the database.">Kalite biriminin MODBUS protokolüyle veri alıp gönderen cihazlarından gerekli verileri toplayan, cihazları tanımlayan ve .NET ortamında servis olarak çalışan uygulama. Yarım saatlik timer ile çalışıp istenen verileri veritabanına kaydediyor.</p>
+          <div class="project-tech"><span class="tech-tag">C#</span><span class="tech-tag">.NET</span><span class="tech-tag">MODBUS</span><span class="tech-tag">Windows Service</span></div>
+          <div class="project-org">Samet Kalıp A.Ş.</div>
+        </div>
+      </article>
+
+      <article class="project-card reveal" data-tags="csharp,automation">
+        <div class="project-header">
+          <div class="project-duration"><span data-start="2014-08" data-end="" data-range-only="1"></span><span class="badge-live" data-tr="Aktif" data-en="Active">Aktif</span></div>
+          <h3 data-tr="Xerox Yazıcı Sayaç Takip Sistemi" data-en="Xerox Printer Counter Tracking System">Xerox Yazıcı Sayaç Takip Sistemi</h3>
+        </div>
+        <div class="project-body">
+          <p data-tr="Xerox yazıcılardan günlük sayaç, toplam sayaç ve siyah/renkli baskı adetlerini HTML parse yöntemiyle çeken C# projesi. Alınan veriler veritabanına yazılıyor ve istenildiğinde eBA üzerinden rapor olarak alınabiliyor." data-en="A C# project that pulls daily counters, total counters and black/colour print counts from Xerox printers via HTML parsing. The collected data is written to the database and can be reported through eBA on demand.">Xerox yazıcılardan günlük sayaç, toplam sayaç ve siyah/renkli baskı adetlerini HTML parse yöntemiyle çeken C# projesi. Alınan veriler veritabanına yazılıyor ve istenildiğinde eBA üzerinden rapor olarak alınabiliyor.</p>
+          <div class="project-tech"><span class="tech-tag">C#</span><span class="tech-tag">HTML Parsing</span><span class="tech-tag">eBA</span></div>
+          <div class="project-org">Samet Kalıp A.Ş.</div>
+        </div>
+      </article>
+
+      <article class="project-card reveal" data-tags="integration">
+        <div class="project-header">
+          <div class="project-duration"><span data-start="2010-01" data-end="" data-range-only="1"></span><span class="badge-live" data-tr="Aktif" data-en="Active">Aktif</span></div>
+          <h3 data-tr="SharePoint Intranet Uygulaması" data-en="SharePoint Intranet Application">SharePoint Intranet Uygulaması</h3>
+        </div>
+        <div class="project-body">
+          <p data-tr="Grup şirketlerinin iş süreçlerinin (İnsan Kaynakları, Satın Alma, Filo Satış, Bilet Takip Sistemi) intranet ortamına taşınarak çalışanların çeşitli veritabanlarına, raporlara ve işleriyle ilgili bilgilere tek bir arayüz üzerinden ulaşmasını sağlayan proje." data-en="A project that moved group companies' business processes (HR, Purchasing, Fleet Sales, Ticket Tracking) onto an intranet, giving employees a single interface to reach various databases, reports and work-related information.">Grup şirketlerinin iş süreçlerinin (İnsan Kaynakları, Satın Alma, Filo Satış, Bilet Takip Sistemi) intranet ortamına taşınarak çalışanların çeşitli veritabanlarına, raporlara ve işleriyle ilgili bilgilere tek bir arayüz üzerinden ulaşmasını sağlayan proje.</p>
+          <div class="project-tech"><span class="tech-tag">SharePoint</span><span class="tech-tag">Intranet</span><span class="tech-tag">C#</span></div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= GITHUB ================= -->
+<section id="github">
+  <div class="container">
+    <h2 class="section-title" data-tr="GitHub'da Açık Kaynak" data-en="Open Source on GitHub">GitHub'da Açık Kaynak</h2>
+    <p class="section-sub" data-tr="Kurumsal projelerin büyük bölümü özel depolarda. Aşağıda herkese açık çalışmalar canlı olarak listeleniyor." data-en="Most enterprise work lives in private repositories. Public work is listed live below.">Kurumsal projelerin büyük bölümü özel depolarda. Aşağıda herkese açık çalışmalar canlı olarak listeleniyor.</p>
+    <div class="repo-grid" id="repo-grid"></div>
+    <p class="repo-note" id="repo-note" data-tr="Depolar yükleniyor…" data-en="Loading repositories…">Depolar yükleniyor…</p>
+    <p style="text-align:center;margin-top:1.4rem">
+      <a href="https://github.com/fatihsahinbas" target="_blank" rel="noopener" class="icon-btn" style="text-decoration:none;display:inline-block" data-tr="GitHub profilini aç →" data-en="Open GitHub profile →">GitHub profilini aç →</a>
+    </p>
+  </div>
+</section>
+
+<!-- ================= CERTIFICATIONS ================= -->
+<section id="certifications">
+  <div class="container">
+    <h2 class="section-title" data-tr="Sertifikalar &amp; Eğitim" data-en="Certifications &amp; Education">Sertifikalar &amp; Eğitim</h2>
+    <p class="section-sub" data-tr="Sürekli öğrenmeyle güncellenen teknik altyapı." data-en="A technical foundation kept current through continuous learning.">Sürekli öğrenmeyle güncellenen teknik altyapı.</p>
+    <div class="certifications-grid">
+      <div class="certification-card reveal">
+        <h4>Blazor, .NET Core Web API and Microsoft SQL Full-Stack App</h4>
+        <p data-tr="Full-stack web uygulama geliştirme" data-en="Full-stack web application development">Full-stack web uygulama geliştirme</p>
+      </div>
+      <div class="certification-card reveal">
+        <h4 data-tr="Python: Yapay Zeka ve Veri Bilimi için Python Programlama" data-en="Python: Programming for Artificial Intelligence and Data Science">Python: Yapay Zeka ve Veri Bilimi için Python Programlama</h4>
+        <p data-tr="Yapay zeka ve makine öğrenmesi uygulamaları" data-en="Artificial intelligence and machine learning applications">Yapay zeka ve makine öğrenmesi uygulamaları</p>
+      </div>
+      <div class="certification-card reveal">
+        <h4>ICSI | CNSS Certified Network Security Specialist</h4>
+        <p data-tr="Ağ güvenliği uzmanlığı" data-en="Network security specialisation">Ağ güvenliği uzmanlığı</p>
+      </div>
+      <div class="certification-card reveal">
+        <h4>Social Media Bots with Python</h4>
+        <p data-tr="Python ile otomasyon ve bot geliştirme" data-en="Automation and bot development with Python">Python ile otomasyon ve bot geliştirme</p>
+      </div>
+      <div class="certification-card reveal">
+        <h4>Learn Advanced HTML5</h4>
+        <p data-tr="İleri seviye HTML5 teknolojileri" data-en="Advanced HTML5 technologies">İleri seviye HTML5 teknolojileri</p>
+      </div>
+      <div class="certification-card reveal">
+        <h4 data-tr="Kafkas Üniversitesi — Bilgisayar Programcılığı" data-en="Kafkas University — Computer Programming">Kafkas Üniversitesi — Bilgisayar Programcılığı</h4>
+        <p data-tr="Önlisans, 2002–2005 · GNO 3.40" data-en="Associate Degree, 2002–2005 · GPA 3.40">Önlisans, 2002–2005 · GNO 3.40</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ABOUT ================= -->
+<section id="about">
+  <div class="container">
+    <h2 class="section-title" data-tr="Hakkımda" data-en="About Me">Hakkımda</h2>
+    <div class="about-content">
+      <p data-tr="20+ yıllık deneyime sahip senior yazılım geliştirici ve veritabanı uzmanıyım. Python, C#/.NET ve Rust tarafında üretim yaparken; ERP sistemleri, iş akışı yönetimi, endüstriyel entegrasyon ve low-code platformlar konusunda derinlemesine saha tecrübem var." data-en="I am a senior software developer and database specialist with 20+ years of experience. I build with Python, C#/.NET and Rust, backed by deep field experience in ERP systems, workflow management, industrial integration and low-code platforms.">20+ yıllık deneyime sahip senior yazılım geliştirici ve veritabanı uzmanıyım. Python, C#/.NET ve Rust tarafında üretim yaparken; ERP sistemleri, iş akışı yönetimi, endüstriyel entegrasyon ve low-code platformlar konusunda derinlemesine saha tecrübem var.</p>
+
+      <div class="stats">
+        <div class="stat-item"><span class="stat-number" data-count="20">20+</span><span data-tr="Yıl Deneyim" data-en="Years Experience">Yıl Deneyim</span></div>
+        <div class="stat-item"><span class="stat-number" data-count="22">22+</span><span data-tr="Öne Çıkan Proje" data-en="Featured Projects">Öne Çıkan Proje</span></div>
+        <div class="stat-item"><span class="stat-number" data-count="11">11</span><span data-tr="Kurum Deneyimi" data-en="Organisations">Kurum Deneyimi</span></div>
+        <div class="stat-item"><span class="stat-number" data-count="5">5+</span><span data-tr="Sertifika" data-en="Certifications">Sertifika</span></div>
+      </div>
+
+      <p data-tr="Kariyerim boyunca sağlık, elektronik güvenlik, ulaşım, enerji, üretim ve holding sektörlerinde çalıştım. Bugün Yeşilova Holding'de eBA workflow ve IFS ERP entegrasyonlarından sorumluyum; Kuika low-code platformunun proje yöneticiliğini ve geliştiriciliğini yürütüyorum. Boş zamanlarımda açık kaynak Python paketleri ve Rust ile sistem seviyesinde kütüphaneler yazıyorum." data-en="Over my career I have worked across healthcare, electronic security, transportation, energy, manufacturing and holding groups. Today I am responsible for eBA workflow and IFS ERP integrations at Yeşilova Holding, where I also act as project manager and developer of the Kuika low-code platform. In my own time I write open-source Python packages and system-level libraries in Rust.">Kariyerim boyunca sağlık, elektronik güvenlik, ulaşım, enerji, üretim ve holding sektörlerinde çalıştım. Bugün Yeşilova Holding'de eBA workflow ve IFS ERP entegrasyonlarından sorumluyum; Kuika low-code platformunun proje yöneticiliğini ve geliştiriciliğini yürütüyorum. Boş zamanlarımda açık kaynak Python paketleri ve Rust ile sistem seviyesinde kütüphaneler yazıyorum.</p>
+
+      <p data-tr="&lt;strong&gt;&quot;Oku, Yaz, Düşün, Düşle&quot;&lt;/strong&gt; mottosuyla sürekli öğrenmeye odaklanıyorum. Blogumda hem teknik konuları hem de kişisel düşüncelerimi paylaşıyorum." data-en="&lt;strong&gt;&quot;Read, Write, Think, Dream&quot;&lt;/strong&gt; is the motto behind my focus on continuous learning. On my blog I share both technical topics and personal reflections."><strong>"Oku, Yaz, Düşün, Düşle"</strong> mottosuyla sürekli öğrenmeye odaklanıyorum. Blogumda hem teknik konuları hem de kişisel düşüncelerimi paylaşıyorum.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section id="contact">
+  <div class="container">
+    <h2 class="section-title" data-tr="İletişim" data-en="Contact">İletişim</h2>
+    <p class="section-sub" data-tr="Yeni projeler, iş birlikleri ve fikir alışverişi için her zaman açığım." data-en="Always open to new projects, collaborations and an exchange of ideas.">Yeni projeler, iş birlikleri ve fikir alışverişi için her zaman açığım.</p>
+    <div class="contact-info">
+      <div class="contact-item reveal">
+        <div class="contact-icon">📧</div>
+        <h3 data-tr="E-posta" data-en="Email">E-posta</h3>
+        <p><a href="mailto:fatihsahinbas@gmail.com">fatihsahinbas@gmail.com</a></p>
+      </div>
+      <div class="contact-item reveal">
+        <div class="contact-icon">💼</div>
+        <h3>LinkedIn</h3>
+        <p><a href="https://www.linkedin.com/in/fatihsahinbas/" target="_blank" rel="noopener">/in/fatihsahinbas</a></p>
+      </div>
+      <div class="contact-item reveal">
+        <div class="contact-icon">💻</div>
+        <h3>GitHub</h3>
+        <p><a href="https://github.com/fatihsahinbas" target="_blank" rel="noopener">@fatihsahinbas</a></p>
+      </div>
+      <div class="contact-item reveal">
+        <div class="contact-icon">🌐</div>
+        <h3 data-tr="Blog" data-en="Blog">Blog</h3>
+        <p><a href="https://www.fatihsahinbas.com.tr/" target="_blank" rel="noopener">fatihsahinbas.com.tr</a></p>
+        <p data-tr="Düşünce Mezarlığı" data-en="Düşünce Mezarlığı">Düşünce Mezarlığı</p>
+      </div>
+      <div class="contact-item reveal">
+        <div class="contact-icon">📍</div>
+        <h3 data-tr="Lokasyon" data-en="Location">Lokasyon</h3>
+        <p>Bursa, Türkiye</p>
+        <p data-tr="Türkçe · İngilizce" data-en="Turkish · English">Türkçe · İngilizce</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p>&copy; <span id="year"></span> Fatih Şahinbaş.
+      <span data-tr="Tüm hakları saklıdır." data-en="All rights reserved.">Tüm hakları saklıdır.</span></p>
+    <p data-tr="&quot;Oku, Yaz, Düşün, Düşle&quot;" data-en="&quot;Read, Write, Think, Dream&quot;">"Oku, Yaz, Düşün, Düşle"</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+'use strict';
+
+/* ---------- i18n ---------- */
+var STR = {
+  tr: {
+    months:['Oca','Şub','Mar','Nis','May','Haz','Tem','Ağu','Eyl','Eki','Kas','Ara'],
+    present:'Devam ediyor', year:'yıl', month:'ay',
+    all:'Tümü', showing:'proje gösteriliyor',
+    showMore:'Önceki pozisyonları göster (5)', showLess:'Önceki pozisyonları gizle',
+    repoEmpty:'Herkese açık depo bulunamadı — projelerin çoğu özel depolarda tutuluyor.',
+    repoError:'GitHub verileri şu anda yüklenemedi.',
+    roles:['Python Developer','C# / .NET Architect','Database Specialist','ERP Integration Expert','Rust Systems Programmer','AI &amp; ML Practitioner']
+  },
+  en: {
+    months:['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],
+    present:'Present', year:'yr', month:'mo',
+    all:'All', showing:'projects shown',
+    showMore:'Show earlier positions (5)', showLess:'Hide earlier positions',
+    repoEmpty:'No public repositories found — most projects are kept in private repos.',
+    repoError:'GitHub data could not be loaded right now.',
+    roles:['Python Developer','C# / .NET Architect','Database Specialist','ERP Integration Expert','Rust Systems Programmer','AI &amp; ML Practitioner']
+  }
+};
+var lang = localStorage.getItem('lang') || (navigator.language && navigator.language.slice(0,2) === 'tr' ? 'tr' : 'en');
+
+function applyLang(){
+  document.documentElement.lang = lang;
+  document.querySelectorAll('[data-tr]').forEach(function(el){
+    var v = el.getAttribute('data-' + lang);
+    if (v !== null) el.innerHTML = v;
+  });
+  document.getElementById('lang-toggle').textContent = lang === 'tr' ? 'EN' : 'TR';
+  renderDurations();
+  buildFilters();
+  updateExpToggle();
+  if (repoState.done) renderRepos();
+  localStorage.setItem('lang', lang);
+}
+
+/* ---------- Theme ---------- */
+var saved = localStorage.getItem('theme');
+var theme = saved || (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+function applyTheme(){
+  document.documentElement.setAttribute('data-theme', theme);
+  document.getElementById('theme-toggle').textContent = theme === 'dark' ? '☀️' : '🌙';
+  localStorage.setItem('theme', theme);
+}
+document.getElementById('theme-toggle').addEventListener('click', function(){
+  theme = theme === 'dark' ? 'light' : 'dark';
+  applyTheme();
+});
+document.getElementById('lang-toggle').addEventListener('click', function(){
+  lang = lang === 'tr' ? 'en' : 'tr';
+  applyLang();
+});
+
+/* ---------- Mobile menu ---------- */
+var navLinks = document.getElementById('nav-links');
+document.getElementById('menu-toggle').addEventListener('click', function(){
+  navLinks.classList.toggle('open');
+});
+navLinks.addEventListener('click', function(e){
+  if (e.target.tagName === 'A') navLinks.classList.remove('open');
+});
+
+/* ---------- Auto durations (never go stale) ---------- */
+function fmt(ym){
+  var p = ym.split('-'), m = parseInt(p[1],10) - 1;
+  return STR[lang].months[m] + ' ' + p[0];
+}
+function monthsBetween(s, e){
+  var a = s.split('-'), b = e.split('-');
+  return (parseInt(b[0],10) - parseInt(a[0],10)) * 12 + (parseInt(b[1],10) - parseInt(a[1],10));
+}
+function nowYM(){
+  var d = new Date();
+  return d.getFullYear() + '-' + String(d.getMonth()+1).padStart(2,'0');
+}
+function humanize(total){
+  if (total < 1) total = 1;
+  var y = Math.floor(total/12), m = total % 12, out = [];
+  if (y) out.push(y + ' ' + STR[lang].year);
+  if (m) out.push(m + ' ' + STR[lang].month);
+  return out.join(' ');
+}
+function renderDurations(){
+  document.querySelectorAll('[data-start]').forEach(function(el){
+    var s = el.getAttribute('data-start');
+    var e = el.getAttribute('data-end');
+    var ongoing = !e;
+    var end = ongoing ? nowYM() : e;
+    var label = fmt(s) + ' – ' + (ongoing ? STR[lang].present : fmt(e));
+    if (!el.hasAttribute('data-range-only')) {
+      label += ' · ' + humanize(monthsBetween(s, end));
+    }
+    el.textContent = label;
+  });
+}
+
+/* ---------- Experience show/hide ---------- */
+var expOpen = false;
+var extras = document.querySelectorAll('.extra-exp');
+function updateExpToggle(){
+  var btn = document.getElementById('exp-toggle');
+  btn.textContent = expOpen ? STR[lang].showLess : STR[lang].showMore;
+}
+function setExtras(){
+  extras.forEach(function(el){ el.style.display = expOpen ? '' : 'none'; });
+}
+document.getElementById('exp-toggle').addEventListener('click', function(){
+  expOpen = !expOpen;
+  setExtras();
+  updateExpToggle();
+});
+setExtras();
+
+/* ---------- Project filtering ---------- */
+var TAGS = {
+  python:{tr:'Python',en:'Python'}, csharp:{tr:'C# / .NET',en:'C# / .NET'},
+  rust:{tr:'Rust',en:'Rust'}, fastapi:{tr:'FastAPI',en:'FastAPI'},
+  ai:{tr:'Yapay Zeka',en:'AI / ML'}, oracle:{tr:'Oracle',en:'Oracle'},
+  automation:{tr:'Otomasyon',en:'Automation'}, integration:{tr:'Entegrasyon',en:'Integration'},
+  industrial:{tr:'Endüstriyel',en:'Industrial'}, lowcode:{tr:'Low-Code',en:'Low-Code'},
+  'open-source':{tr:'Açık Kaynak',en:'Open Source'}
+};
+var cards = Array.prototype.slice.call(document.querySelectorAll('.project-card'));
+var activeFilter = 'all';
+
+function buildFilters(){
+  var bar = document.getElementById('filter-bar');
+  var present = {};
+  cards.forEach(function(c){
+    (c.getAttribute('data-tags')||'').split(',').forEach(function(t){
+      t = t.trim(); if (t) present[t] = (present[t]||0) + 1;
+    });
+  });
+  var keys = Object.keys(present).sort(function(a,b){ return present[b]-present[a]; });
+  bar.innerHTML = '';
+  var allBtn = document.createElement('button');
+  allBtn.className = 'filter-btn' + (activeFilter === 'all' ? ' active' : '');
+  allBtn.type = 'button';
+  allBtn.textContent = STR[lang].all + ' (' + cards.length + ')';
+  allBtn.addEventListener('click', function(){ setFilter('all'); });
+  bar.appendChild(allBtn);
+  keys.forEach(function(k){
+    var b = document.createElement('button');
+    b.className = 'filter-btn' + (activeFilter === k ? ' active' : '');
+    b.type = 'button';
+    b.textContent = (TAGS[k] ? TAGS[k][lang] : k) + ' (' + present[k] + ')';
+    b.addEventListener('click', function(){ setFilter(k); });
+    bar.appendChild(b);
+  });
+  applyFilter();
+}
+function setFilter(k){ activeFilter = k; buildFilters(); }
+function applyFilter(){
+  var shown = 0;
+  cards.forEach(function(c){
+    var tags = (c.getAttribute('data-tags')||'').split(',').map(function(s){return s.trim();});
+    var ok = activeFilter === 'all' || tags.indexOf(activeFilter) !== -1;
+    c.classList.toggle('hidden', !ok);
+    if (ok) shown++;
+  });
+  document.getElementById('filter-count').textContent = shown + ' ' + STR[lang].showing;
+}
+
+/* ---------- GitHub repos ---------- */
+var repoState = { done:false, data:null, error:false };
+function renderRepos(){
+  var grid = document.getElementById('repo-grid');
+  var note = document.getElementById('repo-note');
+  grid.innerHTML = '';
+  if (repoState.error){ note.textContent = STR[lang].repoError; note.style.display=''; return; }
+  if (!repoState.data || !repoState.data.length){ note.textContent = STR[lang].repoEmpty; note.style.display=''; return; }
+  note.style.display = 'none';
+  repoState.data.forEach(function(r){
+    var a = document.createElement('a');
+    a.className = 'repo-card'; a.href = r.html_url; a.target = '_blank'; a.rel = 'noopener';
+    var name = document.createElement('div');
+    name.className = 'repo-name'; name.textContent = r.name;
+    var desc = document.createElement('div');
+    desc.className = 'repo-desc'; desc.textContent = r.description || '';
+    var meta = document.createElement('div');
+    meta.className = 'repo-meta';
+    if (r.language){
+      var l = document.createElement('span');
+      l.innerHTML = '<span class="repo-lang-dot"></span>';
+      l.appendChild(document.createTextNode(r.language));
+      meta.appendChild(l);
+    }
+    var st = document.createElement('span'); st.textContent = '★ ' + r.stargazers_count; meta.appendChild(st);
+    var up = document.createElement('span');
+    up.textContent = new Date(r.pushed_at).toLocaleDateString(lang === 'tr' ? 'tr-TR' : 'en-US', {year:'numeric', month:'short'});
+    meta.appendChild(up);
+    a.appendChild(name); a.appendChild(desc); a.appendChild(meta);
+    grid.appendChild(a);
+  });
+}
+fetch('https://api.github.com/users/fatihsahinbas/repos?sort=pushed&per_page=100')
+  .then(function(r){ if(!r.ok) throw new Error('http'); return r.json(); })
+  .then(function(list){
+    repoState.data = list
+      .filter(function(r){ return !r.fork && !r.archived; })
+      .sort(function(a,b){ return new Date(b.pushed_at) - new Date(a.pushed_at); })
+      .slice(0,6);
+    repoState.done = true; renderRepos();
+  })
+  .catch(function(){ repoState.error = true; repoState.done = true; renderRepos(); });
+
+/* ---------- Reveal on scroll ---------- */
+var io = new IntersectionObserver(function(entries){
+  entries.forEach(function(e){
+    if (e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); }
+  });
+}, {threshold:0.08, rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+
+/* ---------- Stat counters ---------- */
+var statsIO = new IntersectionObserver(function(entries){
+  entries.forEach(function(e){
+    if (!e.isIntersecting) return;
+    document.querySelectorAll('.stat-number').forEach(function(el){
+      var target = parseInt(el.getAttribute('data-count'), 10);
+      var suffix = el.textContent.indexOf('+') !== -1 ? '+' : '';
+      var cur = 0, step = Math.max(1, Math.round(target/40));
+      var t = setInterval(function(){
+        cur += step;
+        if (cur >= target){ el.textContent = target + suffix; clearInterval(t); }
+        else el.textContent = cur + suffix;
+      }, 35);
+    });
+    statsIO.disconnect();
+  });
+}, {threshold:0.3});
+var statsEl = document.querySelector('.stats');
+if (statsEl) statsIO.observe(statsEl);
+
+/* ---------- Typewriter ---------- */
+(function(){
+  var el = document.getElementById('typewriter');
+  var i = 0, c = 0, del = false;
+  function tick(){
+    var roles = STR[lang].roles;
+    if (i >= roles.length) i = 0;
+    var word = roles[i];
+    el.textContent = word.substring(0, del ? c-1 : c+1);
+    c += del ? -1 : 1;
+    var speed = del ? 45 : 95;
+    if (!del && c === word.length){ speed = 1900; del = true; }
+    else if (del && c === 0){ del = false; i = (i+1) % roles.length; speed = 420; }
+    setTimeout(tick, speed);
+  }
+  setTimeout(tick, 1200);
+})();
+
+/* ---------- Footer year ---------- */
+document.getElementById('year').textContent = new Date().getFullYear();
+
+/* ---------- Init ---------- */
+applyTheme();
+applyLang();
+})();
+</script>
 </body>
 </html>
