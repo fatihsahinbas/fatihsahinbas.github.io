@@ -214,6 +214,23 @@ section:nth-of-type(even){background:var(--bg-alt)}
 .repo-lang-dot{width:9px;height:9px;border-radius:50%;background:var(--accent);display:inline-block;margin-right:.35rem}
 .repo-note{text-align:center;color:var(--text-soft);font-size:.9rem;padding:1.5rem}
 
+/* ---------- Apify actors ---------- */
+.apify-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1rem;max-width:760px;margin:0 auto 2.4rem}
+.apify-stat{background:var(--accent-soft);border-radius:12px;padding:1.2rem .8rem;text-align:center}
+.apify-stat b{display:block;font-size:1.9rem;font-weight:800;color:var(--accent);line-height:1.15}
+.apify-stat span{font-size:.84rem;color:var(--text-soft)}
+.actor-groups{display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:1.4rem;align-items:start}
+.actor-group{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.5rem;box-shadow:var(--shadow)}
+.actor-group h3{color:var(--accent);font-size:1.05rem;margin-bottom:.4rem}
+.actor-group>p{font-size:.86rem;color:var(--text-soft);margin-bottom:1.1rem}
+.actor-list{display:flex;flex-direction:column;gap:.45rem}
+.actor-link{
+  display:flex;align-items:center;gap:.55rem;text-decoration:none;color:var(--text);
+  font-size:.88rem;padding:.42rem .6rem;border-radius:9px;border:1px solid transparent;transition:all .2s;
+}
+.actor-link:hover{background:var(--accent-soft);border-color:var(--accent);color:var(--accent)}
+.actor-link::before{content:'▸';color:var(--accent);font-size:.8rem;flex-shrink:0}
+
 /* ---------- About ---------- */
 .about-content{max-width:800px;margin:0 auto;text-align:center;font-size:1.02rem;color:var(--text-soft)}
 .about-content p{margin-bottom:1.1rem}
@@ -278,6 +295,7 @@ footer p+p{margin-top:.4rem;opacity:.75}
       <li><a href="#experience" data-tr="Deneyim" data-en="Experience">Deneyim</a></li>
       <li><a href="#skills" data-tr="Yetenekler" data-en="Skills">Yetenekler</a></li>
       <li><a href="#projects" data-tr="Projeler" data-en="Projects">Projeler</a></li>
+      <li><a href="#apify" data-tr="Apify" data-en="Apify">Apify</a></li>
       <li><a href="#github" data-tr="GitHub" data-en="GitHub">GitHub</a></li>
       <li><a href="#certifications" data-tr="Sertifikalar" data-en="Certifications">Sertifikalar</a></li>
       <li><a href="#contact" data-tr="İletişim" data-en="Contact">İletişim</a></li>
@@ -592,11 +610,11 @@ footer p+p{margin-top:.4rem;opacity:.75}
       <article class="project-card reveal" data-tags="python,automation">
         <div class="project-header">
           <div class="project-duration"><span data-start="2025-12" data-end="" data-range-only="1"></span><span class="badge-live" data-tr="Aktif" data-en="Active">Aktif</span></div>
-          <h3>Apify Store — <span data-tr="Türk E-Ticaret Scraper Aktörleri" data-en="Turkish E-Commerce Scraper Actors">Türk E-Ticaret Scraper Aktörleri</span></h3>
+          <h3>Apify Store — <span data-tr="27 Public Aktör" data-en="27 Public Actors">27 Public Aktör</span></h3>
         </div>
         <div class="project-body">
-          <p data-tr="Türk e-ticaret platformlarına odaklanan web scraping aktörlerini Apify Store'da yayınladım ve Pay-Per-Event modeliyle monetize ettim." data-en="Published web scraping actors targeting Turkish e-commerce platforms on the Apify Store, monetized through the Pay-Per-Event model.">Türk e-ticaret platformlarına odaklanan web scraping aktörlerini Apify Store'da yayınladım ve Pay-Per-Event modeliyle monetize ettim.</p>
-          <div class="project-tech"><span class="tech-tag">Python</span><span class="tech-tag">Web Scraping</span><span class="tech-tag">Apify</span><span class="tech-tag">E-Commerce</span></div>
+          <p data-tr="Apify Store'da 27 public aktör yayınladım: Türk e-ticaret platformları için fiyat/katalog scraper'ları ve ERP–lojistik süreçleri için doğrulama API'leri. Pay-Per-Event modeliyle monetize ediliyor; bugüne kadar 82 kullanıcı ve %95,6 başarılı çalıştırma oranı. Yalnızca herkese açık ürün ve fiyat verisi — kişisel veri yok, KVKK uyumlu tasarım." data-en="Published 27 public actors on the Apify Store: price and catalogue scrapers for Turkish e-commerce platforms, plus validation APIs for ERP and logistics workflows. Monetized through the Pay-Per-Event model, with 82 users and a 95.6% successful-run rate so far. Public product and price data only — no personal data, KVKK-aware by design.">Apify Store'da 27 public aktör yayınladım: Türk e-ticaret platformları için fiyat/katalog scraper'ları ve ERP–lojistik süreçleri için doğrulama API'leri. Pay-Per-Event modeliyle monetize ediliyor; bugüne kadar 82 kullanıcı ve %95,6 başarılı çalıştırma oranı. Yalnızca herkese açık ürün ve fiyat verisi — kişisel veri yok, KVKK uyumlu tasarım.</p>
+          <div class="project-tech"><span class="tech-tag">Python</span><span class="tech-tag">Playwright</span><span class="tech-tag">Crawlee</span><span class="tech-tag">Apify</span><span class="tech-tag">Node.js</span></div>
         </div>
       </article>
 
@@ -793,6 +811,75 @@ footer p+p{margin-top:.4rem;opacity:.75}
   </div>
 </section>
 
+<!-- ================= APIFY ================= -->
+<section id="apify">
+  <div class="container">
+    <h2 class="section-title" data-tr="Apify Store Aktörleri" data-en="Apify Store Actors">Apify Store Aktörleri</h2>
+    <p class="section-sub" data-tr="Türk e-ticaret ve ERP ekosistemi için yayınladığım public scraper ve doğrulama API'leri. Yalnızca herkese açık ürün ve fiyat verisi — kişisel veri yok, KVKK uyumlu tasarım." data-en="Public scrapers and validation APIs I publish for the Turkish e-commerce and ERP ecosystem. Public product and price data only — no personal data, KVKK-aware by design.">Türk e-ticaret ve ERP ekosistemi için yayınladığım public scraper ve doğrulama API'leri. Yalnızca herkese açık ürün ve fiyat verisi — kişisel veri yok, KVKK uyumlu tasarım.</p>
+
+    <div class="apify-stats reveal">
+      <div class="apify-stat"><b>27</b><span data-tr="Public Aktör" data-en="Public Actors">Public Aktör</span></div>
+      <div class="apify-stat"><b>82</b><span data-tr="Toplam Kullanıcı" data-en="Total Users">Toplam Kullanıcı</span></div>
+      <div class="apify-stat"><b data-tr="%95,6" data-en="95.6%">%95,6</b><span data-tr="Başarılı Çalıştırma" data-en="Successful Runs">Başarılı Çalıştırma</span></div>
+      <div class="apify-stat"><b data-tr="1.200+" data-en="1,200+">1.200+</b><span data-tr="Toplam Run" data-en="Total Runs">Toplam Run</span></div>
+    </div>
+
+    <div class="actor-groups">
+      <div class="actor-group reveal">
+        <h3 data-tr="🛒 E-Ticaret &amp; Fiyat Scraper'ları" data-en="🛒 E-Commerce &amp; Price Scrapers">🛒 E-Ticaret &amp; Fiyat Scraper'ları</h3>
+        <p data-tr="Rakip fiyat takibi ve katalog çıkarımı; CSV/Excel çıktısı." data-en="Competitor price monitoring and catalogue extraction; CSV/Excel output.">Rakip fiyat takibi ve katalog çıkarımı; CSV/Excel çıktısı.</p>
+        <div class="actor-list">
+            <a class="actor-link" href="https://apify.com/caulleonard/hepsiburada-product-scraper" target="_blank" rel="noopener">Hepsiburada</a>
+            <a class="actor-link" href="https://apify.com/caulleonard/n11-product-scraper" target="_blank" rel="noopener">n11</a>
+            <a class="actor-link" href="https://apify.com/caulleonard/migros-product-scraper" target="_blank" rel="noopener">Migros</a>
+            <a class="actor-link" href="https://apify.com/caulleonard/getir-scraper" target="_blank" rel="noopener">Getir</a>
+            <a class="actor-link" href="https://apify.com/caulleonard/tr-aktuel-scraper" target="_blank" rel="noopener">A101 · BİM · ŞOK Aktüel</a>
+            <a class="actor-link" href="https://apify.com/caulleonard/lcwaikiki-product-scraper" target="_blank" rel="noopener">LC Waikiki</a>
+            <a class="actor-link" href="https://apify.com/caulleonard/defacto-product-scraper" target="_blank" rel="noopener">DeFacto</a>
+            <a class="actor-link" href="https://apify.com/caulleonard/boyner-product-scraper" target="_blank" rel="noopener">Boyner</a>
+            <a class="actor-link" href="https://apify.com/caulleonard/flo-product-scraper" target="_blank" rel="noopener">FLO</a>
+            <a class="actor-link" href="https://apify.com/caulleonard/ebebek-product-scraper" target="_blank" rel="noopener">e-bebek</a>
+            <a class="actor-link" href="https://apify.com/caulleonard/ciceksepeti-product-scraper" target="_blank" rel="noopener">Çiçeksepeti</a>
+            <a class="actor-link" href="https://apify.com/caulleonard/mediamarkt-product-scraper" target="_blank" rel="noopener">MediaMarkt TR</a>
+            <a class="actor-link" href="https://apify.com/caulleonard/vatan-product-scraper" target="_blank" rel="noopener">Vatan Bilgisayar</a>
+            <a class="actor-link" href="https://apify.com/caulleonard/koctas-product-scraper" target="_blank" rel="noopener">Koçtaş</a>
+        </div>
+      </div>
+
+      <div class="actor-group reveal">
+        <h3 data-tr="✅ Doğrulama &amp; Veri API'leri" data-en="✅ Validation &amp; Data APIs">✅ Doğrulama &amp; Veri API'leri</h3>
+        <p data-tr="ERP, e-fatura ve lojistik süreçleri için checksum ve şema doğrulama servisleri." data-en="Checksum and schema validation services for ERP, e-invoicing and logistics workflows.">ERP, e-fatura ve lojistik süreçleri için checksum ve şema doğrulama servisleri.</p>
+        <div class="actor-list">
+            <a class="actor-link" href="https://apify.com/caulleonard/efatura-validator-standby" target="_blank" rel="noopener">e-Fatura Validator (UBL-TR 1.2.1)</a>
+            <a class="actor-link" href="https://apify.com/caulleonard/vergi-no-validator" target="_blank" rel="noopener">VKN / TCKN Validator</a>
+            <a class="actor-link" href="https://apify.com/caulleonard/iban-validator" target="_blank" rel="noopener">TR IBAN Validator</a>
+            <a class="actor-link" href="https://apify.com/caulleonard/gtip-hs-code-lookup" target="_blank" rel="noopener">GTIP / HS Code Lookup</a>
+            <a class="actor-link" href="https://apify.com/caulleonard/konteyner-no-validator" target="_blank" rel="noopener">Konteyner No (ISO 6346)</a>
+            <a class="actor-link" href="https://apify.com/caulleonard/kargo-tracking-validator" target="_blank" rel="noopener">Kargo Takip No Validator</a>
+            <a class="actor-link" href="https://apify.com/caulleonard/imo-ship-no-validator" target="_blank" rel="noopener">IMO Gemi No Validator</a>
+            <a class="actor-link" href="https://apify.com/caulleonard/eic-validator" target="_blank" rel="noopener">EIC Enerji Kodu Validator</a>
+            <a class="actor-link" href="https://apify.com/caulleonard/gtin-barcode-validator" target="_blank" rel="noopener">GTIN / EAN / UPC Validator</a>
+            <a class="actor-link" href="https://apify.com/caulleonard/gtin-api" target="_blank" rel="noopener">GTIN / Barkod API</a>
+            <a class="actor-link" href="https://apify.com/caulleonard/vin-api" target="_blank" rel="noopener">VIN Decoder API</a>
+        </div>
+      </div>
+
+      <div class="actor-group reveal">
+        <h3 data-tr="🧰 Yardımcı Araçlar" data-en="🧰 Utilities">🧰 Yardımcı Araçlar</h3>
+        <p data-tr="Arşiv kurtarma ve zamanlama yardımcıları." data-en="Archive recovery and scheduling helpers.">Arşiv kurtarma ve zamanlama yardımcıları.</p>
+        <div class="actor-list">
+            <a class="actor-link" href="https://apify.com/caulleonard/wayback-extractor" target="_blank" rel="noopener">Wayback Machine Extractor</a>
+            <a class="actor-link" href="https://apify.com/caulleonard/cron-api" target="_blank" rel="noopener">Cron Expression API</a>
+        </div>
+      </div>
+    </div>
+
+    <p style="text-align:center;margin-top:1.8rem">
+      <a href="https://apify.com/caulleonard" target="_blank" rel="noopener" class="icon-btn" style="text-decoration:none;display:inline-block" data-tr="Tüm aktörleri Apify Store'da gör →" data-en="See all actors on Apify Store →">Tüm aktörleri Apify Store'da gör →</a>
+    </p>
+  </div>
+</section>
+
 <!-- ================= GITHUB ================= -->
 <section id="github">
   <div class="container">
@@ -849,7 +936,7 @@ footer p+p{margin-top:.4rem;opacity:.75}
 
       <div class="stats">
         <div class="stat-item"><span class="stat-number" data-count="20">20+</span><span data-tr="Yıl Deneyim" data-en="Years Experience">Yıl Deneyim</span></div>
-        <div class="stat-item"><span class="stat-number" data-count="22">22+</span><span data-tr="Öne Çıkan Proje" data-en="Featured Projects">Öne Çıkan Proje</span></div>
+        <div class="stat-item"><span class="stat-number" data-count="27">27</span><span data-tr="Apify Aktörü" data-en="Apify Actors">Apify Aktörü</span></div>
         <div class="stat-item"><span class="stat-number" data-count="11">11</span><span data-tr="Kurum Deneyimi" data-en="Organisations">Kurum Deneyimi</span></div>
         <div class="stat-item"><span class="stat-number" data-count="5">5+</span><span data-tr="Sertifika" data-en="Certifications">Sertifika</span></div>
       </div>
